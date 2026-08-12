@@ -4,7 +4,12 @@ on:
   schedule:
     # 15:00 UTC daily. Adjust to whenever the guild is most active.
     - cron: "0 15 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "Custom message to post instead of the default daily link"
+        required: false
+        type: string
 
 jobs:
   post:
@@ -14,10 +19,16 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           ROSTER_URL: https://claude.ai/code/artifact/2d3a73a8-5995-4097-8446-2ff20c533627
+          CUSTOM_MESSAGE: ${{ inputs.message }}
         run: |
           if [ -z "$DISCORD_WEBHOOK_URL" ]; then
             echo "DISCORD_WEBHOOK_URL secret is not set. See README for setup." >&2
             exit 1
           fi
-          payload=$(printf '{"content": "🛡️ **California Guild Roster** — Monster Invasion + donation standings: %s"}' "$ROSTER_URL")
+          if [ -n "$CUSTOM_MESSAGE" ]; then
+            content="$CUSTOM_MESSAGE"
+          else
+            content="🛡️ **California Guild Roster** — Monster Invasion + donation standings: $ROSTER_URL"
+          fi
+          payload=$(jq -n --arg c "$content" '{content: $c}')
           curl -sS -f -X POST -H "Content-Type: application/json" -d "$payload" "$DISCORD_WEBHOOK_URL"
