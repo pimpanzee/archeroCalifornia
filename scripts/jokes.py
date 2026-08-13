@@ -13,7 +13,7 @@ state.
 Usage:
     from jokes import pick_top_performer_joke, pick_zero_attack_joke
     line = pick_top_performer_joke("2026-08-12", name="Pimpanzee", value="4.82T")
-    line = pick_zero_attack_joke("2026-08-12", name="RESIIK")
+    line = pick_zero_attack_joke("2026-08-12", name="RESIIK", frac="0/6")
 """
 
 import hashlib
@@ -29,15 +29,17 @@ TOP_PERFORMER_JOKES = [
     "🏆 My fellow Californians, {name} put up {value} damage today. Some call it overkill. I call it a mandate.",
 ]
 
+# {frac} is the member's weekly attack tally, e.g. "0/6" -- always
+# 2 x tracked-days-so-far, matching the roster page's own weekly denominator.
 ZERO_ATTACK_JOKES = [
-    "👻 {name}, 0 for 4 this week. Look, I'm not here to point fingers — but I am pointing directly at you on this one.",
-    "👻 We have a state of emergency: {name} is 0/4 on attacks this week. Requesting immediate guild assistance.",
-    "👻 {name}, 0/4 attacks. I campaigned on accountability, so — where were you?",
-    "👻 Let's be honest, {name} — 0/4 this week is not the comeback story we were hoping for. Time to get back on the campaign trail.",
-    "👻 {name} at 0/4 attacks. Even my approval rating's not that low. Let's turn this around, champ.",
-    "👻 I don't do excuses, {name}, I do results. And right now the results say 0/4. Let's fix that before next week's town hall.",
-    "👻 {name}, 0/4 attacks this week. If this were a budget, I'd call it a shortfall. Let's course-correct.",
-    "👻 0/4, {name}? Even I show up to work. Get in there.",
+    "👻 {name}, {frac} this week. Look, I'm not here to point fingers — but I am pointing directly at you on this one.",
+    "👻 We have a state of emergency: {name} is {frac} on attacks this week. Requesting immediate guild assistance.",
+    "👻 {name}, {frac} attacks. I campaigned on accountability, so — where were you?",
+    "👻 Let's be honest, {name} — {frac} this week is not the comeback story we were hoping for. Time to get back on the campaign trail.",
+    "👻 {name} at {frac} attacks. Even my approval rating's not that low. Let's turn this around, champ.",
+    "👻 I don't do excuses, {name}, I do results. And right now the results say {frac}. Let's fix that before next week's town hall.",
+    "👻 {name}, {frac} attacks this week. If this were a budget, I'd call it a shortfall. Let's course-correct.",
+    "👻 {frac}, {name}? Even I show up to work. Get in there.",
 ]
 
 
@@ -51,6 +53,6 @@ def pick_top_performer_joke(date_str: str, name: str, value: str) -> str:
     return line.format(name=name, value=value)
 
 
-def pick_zero_attack_joke(date_str: str, name: str) -> str:
+def pick_zero_attack_joke(date_str: str, name: str, frac: str) -> str:
     line = ZERO_ATTACK_JOKES[_seeded_index(date_str + ":zero", len(ZERO_ATTACK_JOKES))]
-    return line.format(name=name)
+    return line.format(name=name, frac=frac)
