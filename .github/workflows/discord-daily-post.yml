@@ -1,9 +1,8 @@
 name: Post guild roster link to Discord
 
 on:
-  schedule:
-    # 15:00 UTC daily. Adjust to whenever the guild is most active.
-    - cron: "0 15 * * *"
+  # No schedule -- this only fires via manual dispatch, triggered once the
+  # day's numbers have actually been reviewed and added to the tracker.
   workflow_dispatch:
     inputs:
       message:
