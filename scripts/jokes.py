@@ -31,6 +31,8 @@ TOP_PERFORMER_JOKES = [
 
 # {frac} is the member's weekly attack tally, e.g. "0/6" -- always
 # 2 x tracked-days-so-far, matching the roster page's own weekly denominator.
+# Kept around for members who need a firmer nudge; default day-to-day use is
+# GENTLE_ZERO_ATTACK_JOKES below.
 ZERO_ATTACK_JOKES = [
     "👻 {name}, {frac} this week. Look, I'm not here to point fingers — but I am pointing directly at you on this one.",
     "👻 We have a state of emergency: {name} is {frac} on attacks this week. Requesting immediate guild assistance.",
@@ -40,6 +42,17 @@ ZERO_ATTACK_JOKES = [
     "👻 I don't do excuses, {name}, I do results. And right now the results say {frac}. Let's fix that before next week's town hall.",
     "👻 {name}, {frac} attacks this week. If this were a budget, I'd call it a shortfall. Let's course-correct.",
     "👻 {frac}, {name}? Even I show up to work. Get in there.",
+]
+
+# Softer version -- a nudge, not a scolding. Default choice for the daily
+# zero-attack callout.
+GENTLE_ZERO_ATTACK_JOKES = [
+    "👻 {name}, {frac} attacks this week. No press conference today, just a friendly reminder the boss doesn't fight itself — we know you've got it in you.",
+    "👻 {name} sat out today ({frac} this week). Everybody's entitled to a rest day — just don't make it two.",
+    "👻 {name}, {frac} this week. Not gonna grandstand about it — just a nudge that the invasion's still there whenever you're ready.",
+    "👻 {name} at {frac} this week. No citation, just a wave — come say hi to the boss when you get a chance.",
+    "👻 {name}, {frac} attacks. Life happens — hop back in when you can, we're rooting for you.",
+    "👻 {name} is at {frac} this week. Consider this a friendly nudge, not a citation. Comeback szn awaits.",
 ]
 
 
@@ -55,4 +68,9 @@ def pick_top_performer_joke(date_str: str, name: str, value: str) -> str:
 
 def pick_zero_attack_joke(date_str: str, name: str, frac: str) -> str:
     line = ZERO_ATTACK_JOKES[_seeded_index(date_str + ":zero", len(ZERO_ATTACK_JOKES))]
+    return line.format(name=name, frac=frac)
+
+
+def pick_gentle_zero_attack_joke(date_str: str, name: str, frac: str) -> str:
+    line = GENTLE_ZERO_ATTACK_JOKES[_seeded_index(date_str + ":zero-gentle", len(GENTLE_ZERO_ATTACK_JOKES))]
     return line.format(name=name, frac=frac)
