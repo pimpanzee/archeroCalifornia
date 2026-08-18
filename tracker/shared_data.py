@@ -1,0 +1,204 @@
+import base64
+from pathlib import Path
+
+FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
+
+# Known published URLs -- update DONATIONS_URL after the donations page's first publish.
+INVASION_URL = "https://claude.ai/code/artifact/2d3a73a8-5995-4097-8446-2ff20c533627"
+DONATIONS_URL = "https://claude.ai/code/artifact/e6f3430a-77ad-41f9-a37a-cde5487c8593"
+
+GUILD_ID = "90754"
+UPDATED_DATE = "Aug 17, 2026"
+
+
+def b64(name):
+    return base64.b64encode((Path(FONTS) / name).read_bytes()).decode()
+
+
+FONT_BS_BOLD = b64("BigShoulders-Bold.ttf")
+FONT_IS_REG = b64("InstrumentSans-Regular.ttf")
+FONT_IS_BOLD = b64("InstrumentSans-Bold.ttf")
+FONT_JB_REG = b64("JetBrainsMono-Regular.ttf")
+FONT_JB_BOLD = b64("JetBrainsMono-Bold.ttf")
+
+FONT_REPLACEMENTS = {
+    "__FONT_BS_BOLD__": FONT_BS_BOLD,
+    "__FONT_IS_REG__": FONT_IS_REG,
+    "__FONT_IS_BOLD__": FONT_IS_BOLD,
+    "__FONT_JB_REG__": FONT_JB_REG,
+    "__FONT_JB_BOLD__": FONT_JB_BOLD,
+}
+
+MASTHEAD_REPLACEMENTS = {
+    "__GUILD_ID__": GUILD_ID,
+    "__UPDATED_DATE__": UPDATED_DATE,
+}
+
+# ---- Data ----
+# New week: Mon 8/17 - Sun 8/23. Roster carries over from last week at
+# 47/48 (RESIIK's departure persisted; no other roster changes observed).
+# Unlike the previous week's Monday, this week we have the actual Manage
+# Member attack-count screen for Monday, so ATTACKS_MON is real data, not an
+# inferred backfill. Damage ranking (1-43 of 47) read off the scrollable
+# Guild Member Ranking list; the 4 members missing from it (Maskiert03,
+# NalaStomp, Mightykey, 1RauMuong1) are exactly the 4 who show 0 attacks
+# below. estimov (rank 31) fell in a gap between two ranking screenshots and
+# wasn't directly captured -- its value here is a midpoint estimate bounded
+# by its neighbors (ScHlAnGE 66.58B above, zozoxo 51.87B below).
+invasion_logged_mon = {
+    "HyenA": 3.98e12,
+    "Flforever": 2.98e12,
+    "Pimpanzee": 2.94e12,
+    "RonickForce": 2.30e12,
+    "elementten": 1.40e12,
+    "fred21422": 1.35e12,
+    "BenZoo": 1.24e12,
+    "Nad33m": 1.20e12,
+    "Drew2264": 966.15e9,
+    "NHTPhat": 790.50e9,
+    "iBooneh": 730.62e9,
+    "Saludan": 659.44e9,
+    "REAPS": 623.87e9,
+    "Altair1165": 454.07e9,
+    "Rendaxx": 413.76e9,
+    "DKDKDKDK": 399.53e9,
+    "P107215255": 381.92e9,
+    "SpudNugget18": 211.67e9,
+    "Ekkehard": 200.75e9,
+    "AnyDockers": 189.72e9,
+    "Drakias": 177.99e9,
+    "Rysor": 165.10e9,
+    "Ibnt": 162.01e9,
+    "BigRagaTheOppStopa": 149.90e9,
+    "Tvojemama1": 148.61e9,
+    "Skytiti": 119.26e9,
+    "saare": 89.55e9,
+    "Ghost192": 86.87e9,
+    "tEruPmA": 82.02e9,
+    "ScHlAnGE": 66.58e9,
+    "estimov": 59.00e9,  # inferred midpoint -- see note above
+    "zozoxo": 51.87e9,
+    "choolzy": 51.72e9,
+    "Jackylefeu": 46.75e9,
+    "Swidishh": 45.41e9,
+    "Stumbi97": 41.67e9,
+    "IlTeino": 39.11e9,
+    "Katitos": 34.40e9,
+    "Vomenjack": 24.58e9,
+    "Atom369": 14.61e9,
+    "Murkchoppa": 12.36e9,
+    "Fredolay": 9.20e9,
+    "xavop": 7.47e9,
+    # Not visible in the scrolled ranking (Maskiert03, NalaStomp, Mightykey,
+    # 1RauMuong1) -- confirmed 0 attacks for the day (see ATTACKS_MON).
+}
+
+# Attack count (out of a max of 2/day) for Monday 8/17, read off the red
+# skull icon on the Manage Member / donation screens.
+ATTACKS_MON = {
+    "Stumbi97": 2, "tEruPmA": 2, "ScHlAnGE": 2, "Maskiert03": 0,
+    "NalaStomp": 0, "Mightykey": 0, "Nad33m": 2, "Ekkehard": 2, "zozoxo": 2,
+    "Flforever": 2, "Katitos": 2, "choolzy": 2, "Tvojemama1": 2,
+    "Jackylefeu": 2, "AnyDockers": 2, "BigRagaTheOppStopa": 2, "REAPS": 2,
+    "xavop": 1, "Atom369": 2, "Altair1165": 2, "Rendaxx": 2, "Fredolay": 1,
+    "IlTeino": 2, "Ibnt": 2, "NHTPhat": 2, "Drakias": 2, "Swidishh": 2,
+    "P107215255": 2, "Saludan": 2, "Rysor": 2, "Murkchoppa": 1,
+    "SpudNugget18": 2, "fred21422": 2, "estimov": 2, "Skytiti": 1,
+    "Ghost192": 2, "RonickForce": 2, "DKDKDKDK": 2, "iBooneh": 2,
+    "saare": 2, "HyenA": 2, "BenZoo": 2, "Pimpanzee": 2, "Vomenjack": 1,
+    "elementten": 2, "Drew2264": 2, "1RauMuong1": 0,
+}
+
+DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+DAY_DATES = ["8/17", "8/18", "8/19", "8/20", "8/21", "8/22", "8/23"]
+DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
+DAY_LOGS = {0: invasion_logged_mon}
+TRACKED_DAYS = sorted(DAY_LOGS.keys())
+TODAY_INDEX = 0  # Monday -- the most recently tracked day
+WEEK_LABEL = "wk of 8/17"
+
+# Roster (47/48 -- RESIIK's departure from last week persisted; no other
+# changes observed), read off the Manage Member / donation screens on 8/17.
+# Donation values below reset to this week's (8/17-8/23) fresh counts.
+donation_members = [
+    ("Rysor", "Guild Member", 800),
+    ("Swidishh", "Guild Member", 800),
+    ("Skytiti", "Guild Member", 480),
+    ("Maskiert03", "Guild Member", 670),
+    ("Saludan", "Guild Member", 540),
+    ("xavop", "Guild Member", 460),
+    ("Flforever", "Guild Member", 760),
+    ("REAPS", "Guild Member", 780),
+    ("zozoxo", "Guild Member", 740),
+    ("choolzy", "Guild Member", 800),
+    ("P107215255", "Guild Member", 800),
+    ("IlTeino", "Guild Member", 780),
+    ("AnyDockers", "Guild Member", 800),
+    ("Atom369", "Guild Member", 0),
+    ("Katitos", "Guild Member", 760),
+    ("Mightykey", "Guild Member", 630),
+    ("BigRagaTheOppStopa", "Guild Member", 800),
+    ("Fredolay", "Guild Member", 420),
+    ("Altair1165", "Guild Member", 600),
+    ("Nad33m", "Guild Member", 500),
+    ("Tvojemama1", "Guild Member", 600),
+    ("tEruPmA", "Guild Member", 670),
+    ("Stumbi97", "Guild Member", 740),
+    ("NalaStomp", "Guild Member", 560),
+    ("Rendaxx", "Guild Member", 800),
+    ("ScHlAnGE", "Guild Member", 480),
+    ("Ghost192", "Guild Member", 560),
+    ("estimov", "Guild Member", 800),
+    ("Vomenjack", "Guild Member", 300),
+    ("NHTPhat", "Guild Member", 500),
+    ("SpudNugget18", "Guild Member", 500),
+    ("Ibnt", "Guild Member", 580),
+    ("fred21422", "Guild Member", 800),
+    ("Ekkehard", "Guild Member", 800),
+    ("Drakias", "Guild Member", 700),
+    ("BenZoo", "Elder", 800),
+    ("HyenA", "Elder", 800),
+    ("saare", "Elder", 760),
+    ("Murkchoppa", "Elder", 0),
+    ("iBooneh", "Elder", 600),
+    ("Jackylefeu", "Guild Member", 0),
+    ("Pimpanzee", "Leader", 800),
+    ("Drew2264", "Vice Leader", 760),
+    ("RonickForce", "Vice Leader", 800),
+    ("1RauMuong1", "Vice Leader", 300),
+    ("elementten", "Vice Leader", 800),
+    ("DKDKDKDK", "Elder", 400),
+]
+donation_members.sort(key=lambda m: m[2], reverse=True)
+
+# Full guild roster (name, role) -- derived from the donation list, which is the
+# only screenshot set that covered every member.
+roster = sorted({(name, role) for name, role, _ in donation_members})
+
+# Attack counts as (attacks, max) pairs per tracked day. This week Monday
+# has real per-member attack-count data (ATTACKS_MON), unlike last week
+# where Monday had to be inferred from damage-ranking presence alone.
+ATTACK_LOGS = {
+    0: {name: (ATTACKS_MON.get(name, 0), 2) for name, role in roster},
+}
+
+
+def fmt_abbrev(n):
+    if n >= 1e12:
+        return f"{n / 1e12:.2f}T"
+    if n >= 1e9:
+        return f"{n / 1e9:.2f}B"
+    if n >= 1e6:
+        return f"{n / 1e6:.2f}M"
+    if n >= 1e3:
+        return f"{n / 1e3:.2f}K"
+    return f"{n:.0f}"
+
+
+def weekly_total(name):
+    return sum(DAY_LOGS[d].get(name, 0) for d in TRACKED_DAYS)
+
+
+invasion_members = [(name, role, weekly_total(name)) for name, role in roster]
+invasion_members.sort(key=lambda m: (-m[2], m[0].lower()))
+attacked_count = sum(1 for m in invasion_members if m[2] > 0)

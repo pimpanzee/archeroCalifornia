@@ -1,0 +1,593 @@
+<title>california — Guild Roster</title>
+<style>
+@font-face { font-family: 'Big Shoulders'; src: url(data:font/ttf;base64,__FONT_BS_BOLD__) format('truetype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Instrument Sans'; src: url(data:font/ttf;base64,__FONT_IS_REG__) format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Instrument Sans'; src: url(data:font/ttf;base64,__FONT_IS_BOLD__) format('truetype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url(data:font/ttf;base64,__FONT_JB_REG__) format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'JetBrains Mono'; src: url(data:font/ttf;base64,__FONT_JB_BOLD__) format('truetype'); font-weight: 700; font-display: swap; }
+
+:root{
+  --ink:#1B1420;
+  --ink-soft:#4A3A45;
+  --bg:#F2E9DC;
+  --surface:#FBF6ED;
+  --surface-2:#EFE3CE;
+  --line:#D9C9AE;
+  --gold:#9C6B1F;
+  --gold-bright:#B8842E;
+  --gold-fill:#D8A94B;
+  --jade:#2F6B48;
+  --jade-fill:#4E9A6D;
+  --warn:#A33B2E;
+  --warn-bg:#F1DAD3;
+  --chip-leader-bg:#F0D8A6; --chip-leader-fg:#5B3E0A;
+  --chip-vice-bg:#E4D3E8; --chip-vice-fg:#4A2E52;
+  --chip-elder-bg:#D6E3D4; --chip-elder-fg:#2C4A2A;
+  --chip-member-bg:transparent; --chip-member-fg:#7A6B60;
+  --shadow: 0 1px 2px rgba(27,20,32,0.06);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#F2E6D8;
+    --ink-soft:#C7B4BC;
+    --bg:#1B1420;
+    --surface:#241A29;
+    --surface-2:#2C2030;
+    --line:#3D2E42;
+    --gold:#E0AE55;
+    --gold-bright:#EBC077;
+    --gold-fill:#C99A42;
+    --jade:#6CB78C;
+    --jade-fill:#4E9A6D;
+    --warn:#E08877;
+    --warn-bg:#3A2420;
+    --chip-leader-bg:#4A3A18; --chip-leader-fg:#F0D8A6;
+    --chip-vice-bg:#3A2C40; --chip-vice-fg:#E4D3E8;
+    --chip-elder-bg:#243A28; --chip-elder-fg:#B9D6B4;
+    --chip-member-bg:transparent; --chip-member-fg:#9A8A90;
+    --shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#F2E6D8; --ink-soft:#C7B4BC; --bg:#1B1420; --surface:#241A29; --surface-2:#2C2030;
+  --line:#3D2E42; --gold:#E0AE55; --gold-bright:#EBC077; --gold-fill:#C99A42;
+  --jade:#6CB78C; --jade-fill:#4E9A6D; --warn:#E08877; --warn-bg:#3A2420;
+  --chip-leader-bg:#4A3A18; --chip-leader-fg:#F0D8A6;
+  --chip-vice-bg:#3A2C40; --chip-vice-fg:#E4D3E8;
+  --chip-elder-bg:#243A28; --chip-elder-fg:#B9D6B4;
+  --chip-member-bg:transparent; --chip-member-fg:#9A8A90;
+  --shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+:root[data-theme="light"]{
+  --ink:#1B1420; --ink-soft:#4A3A45; --bg:#F2E9DC; --surface:#FBF6ED; --surface-2:#EFE3CE;
+  --line:#D9C9AE; --gold:#9C6B1F; --gold-bright:#B8842E; --gold-fill:#D8A94B;
+  --jade:#2F6B48; --jade-fill:#4E9A6D; --warn:#A33B2E; --warn-bg:#F1DAD3;
+  --chip-leader-bg:#F0D8A6; --chip-leader-fg:#5B3E0A;
+  --chip-vice-bg:#E4D3E8; --chip-vice-fg:#4A2E52;
+  --chip-elder-bg:#D6E3D4; --chip-elder-fg:#2C4A2A;
+  --chip-member-bg:transparent; --chip-member-fg:#7A6B60;
+  --shadow: 0 1px 2px rgba(27,20,32,0.06);
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+::selection{ background:var(--gold-fill); color:#1B1420; }
+
+a{ color:var(--gold); }
+
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 20px 64px;
+}
+
+/* ---------- Masthead ---------- */
+.masthead{
+  background:
+    radial-gradient(120% 220% at 12% -20%, rgba(216,169,75,0.16), transparent 55%),
+    linear-gradient(180deg, var(--ink) 0%, #241A29 100%);
+  color:#F2E6D8;
+  padding:36px 20px 28px;
+  border-bottom:3px solid var(--gold-fill);
+}
+:root[data-theme="light"] .masthead, @media (prefers-color-scheme:light){ .masthead{} }
+.masthead-inner{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.title-block .eyebrow{
+  font-family:'JetBrains Mono', ui-monospace, monospace;
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#D8A94B;
+  margin:6px 0 0 1px;
+}
+.title-block h1{
+  font-family:'Big Shoulders', sans-serif;
+  font-weight:700;
+  font-stretch:condensed;
+  font-size:clamp(51px, 9vw, 79px);
+  line-height:0.85;
+  letter-spacing:0.01em;
+  margin:0;
+  text-transform:uppercase;
+  text-wrap:balance;
+  color:#F8F0E2;
+}
+.meta-row{
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+  font-family:'JetBrains Mono', monospace;
+  font-size:13px;
+  color:#C7B4BC;
+}
+.meta-row b{ color:#F2E6D8; font-weight:700; }
+
+.warn-inline{ color:var(--warn); font-weight:700; }
+
+.page-tabs{
+  display:flex;
+  gap:0;
+  margin-top:28px;
+  border-bottom:1px solid var(--line);
+}
+.page-tab{
+  font-family:'JetBrains Mono', monospace;
+  font-size:12.5px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  flex:1 1 0;
+  max-width:200px;
+  padding:12px 20px;
+  margin-bottom:-1px;
+  border:none;
+  border-bottom:3px solid transparent;
+  background:none;
+  color:var(--ink-soft);
+  font-weight:700;
+  cursor:pointer;
+  text-align:center;
+}
+.page-tab.active[data-page="invasion"]{ color:var(--gold); border-bottom-color:var(--gold); }
+.page-tab.active[data-page="donations"]{ color:var(--jade); border-bottom-color:var(--jade); }
+.page-section{ display:none; }
+.page-section.active{ display:block; }
+
+/* ---------- Boards ---------- */
+.boards{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:28px;
+  margin-top:16px;
+}
+.board{
+  background:var(--surface);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.board-head{
+  padding:18px 20px 14px;
+  border-bottom:1px solid var(--line);
+}
+.board-head .kicker{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin:0 0 4px;
+}
+.board.gold .kicker{ color:var(--gold); }
+.board.jade .kicker{ color:var(--jade); }
+.board-head h2{
+  font-family:'Big Shoulders', sans-serif;
+  font-weight:700;
+  font-size:30px;
+  letter-spacing:0.01em;
+  margin:0 0 6px;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+.board-head p{
+  margin:0;
+  font-size:13px;
+  color:var(--ink-soft);
+  line-height:1.5;
+  max-width:52ch;
+}
+
+.rows{ list-style:none; margin:0; padding:0; }
+.row{
+  display:grid;
+  grid-template-columns:34px 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:11px 20px;
+  border-bottom:1px solid var(--line);
+  position:relative;
+}
+.row:last-child{ border-bottom:none; }
+.row.zero{ background:var(--warn-bg); }
+.row.no-attack{ background:var(--warn-bg); border-left:3px solid var(--warn); }
+.row.no-attack .name{ color:var(--warn); }
+.rank{
+  font-family:'Big Shoulders', sans-serif;
+  font-weight:700;
+  font-size:20px;
+  color:var(--ink-soft);
+  text-align:center;
+}
+.who{ min-width:0; }
+.who .name-line{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.who .name{
+  font-weight:700;
+  font-size:14.5px;
+  color:var(--ink);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  max-width:180px;
+}
+.chip{
+  font-family:'JetBrains Mono', monospace;
+  font-size:9.5px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  padding:2px 6px;
+  border-radius:2px;
+  white-space:nowrap;
+}
+.chip.leader{ background:var(--chip-leader-bg); color:var(--chip-leader-fg); }
+.chip.vice{ background:var(--chip-vice-bg); color:var(--chip-vice-fg); }
+.chip.elder{ background:var(--chip-elder-bg); color:var(--chip-elder-fg); }
+.chip.member{ background:var(--chip-member-bg); color:var(--chip-member-fg); border:1px solid var(--line); }
+.chip.flag{ background:var(--warn-bg); color:var(--warn); font-weight:700; }
+.chip.atk-full{ background:var(--gold-fill); color:#241A29; font-weight:700; }
+.chip.atk-partial{ background:#E0A94A; color:#241A29; font-weight:700; }
+.chip.atk-none{ background:var(--warn-bg); color:var(--warn); font-weight:700; }
+
+.bar-track{
+  height:5px;
+  background:var(--surface-2);
+  margin-top:6px;
+  width:100%;
+  max-width:320px;
+}
+.bar-fill{ height:100%; }
+.board.gold .bar-fill{ background:linear-gradient(90deg, var(--gold-fill), var(--gold)); }
+.board.jade .bar-fill{ background:linear-gradient(90deg, var(--jade-fill), var(--jade)); }
+
+.value{
+  font-family:'JetBrains Mono', monospace;
+  font-variant-numeric:tabular-nums;
+  font-weight:700;
+  font-size:15px;
+  text-align:right;
+  white-space:nowrap;
+}
+.board.gold .value{ color:var(--gold); }
+.board.jade .value{ color:var(--jade); }
+.row.no-attack .value{ color:var(--warn); }
+.value .unit{ font-size:11px; opacity:0.75; margin-left:1px; }
+
+/* ---------- Invasion view switcher ---------- */
+.view-switch{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
+.view-btn{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing:0.03em;
+  text-transform:uppercase;
+  padding:8px 14px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--ink-soft);
+  cursor:pointer;
+  transition:background .12s ease, color .12s ease, border-color .12s ease;
+}
+.view-btn:hover{ border-color:var(--gold); }
+.view-btn:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+.view-btn.primary{ font-weight:700; font-size:12px; padding:9px 20px; }
+.view-btn.primary.active{ background:var(--gold-fill); border-color:var(--gold-fill); color:#241A29; }
+.view-btn.secondary.active{ background:transparent; border-color:var(--gold); color:var(--gold); font-weight:700; }
+.view-select{
+  font-family:'JetBrains Mono', monospace;
+  font-size:10.5px;
+  letter-spacing:0.02em;
+  text-transform:uppercase;
+  padding:7px 10px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--ink-soft);
+  cursor:pointer;
+}
+.view-select.active{ border-color:var(--gold); color:var(--gold); }
+.view-message{
+  padding:28px 20px;
+  text-align:center;
+  color:var(--ink-soft);
+  font-size:13px;
+  line-height:1.6;
+}
+
+.board-foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:13px 20px;
+  border-top:2px solid var(--line);
+  font-family:'JetBrains Mono', monospace;
+  font-size:12.5px;
+}
+.board-foot .lbl{ color:var(--ink-soft); letter-spacing:0.06em; text-transform:uppercase; font-size:11px; }
+.board-foot .tot{ font-weight:700; font-size:17px; }
+.board.gold .board-foot .tot{ color:var(--gold); }
+.board.jade .board-foot .tot{ color:var(--jade); }
+
+.roster-note{
+  padding:11px 20px;
+  font-size:11.5px;
+  color:var(--ink-soft);
+  border-top:1px solid var(--line);
+  background:var(--surface-2);
+  line-height:1.5;
+}
+.roster-note b{ color:var(--ink); }
+
+footer.page-foot{
+  max-width:1180px;
+  margin:40px auto 0;
+  padding:0 20px;
+  font-size:12px;
+  color:var(--ink-soft);
+  font-family:'JetBrains Mono', monospace;
+  text-align:center;
+}
+
+@media (prefers-reduced-motion:no-preference){
+  .row{ transition: background 0.15s ease; }
+}
+@media (max-width:480px){
+  .who .name{ max-width:120px; }
+}
+</style>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="title-block">
+      <h1>California</h1>
+      <p class="eyebrow">Land of Pimp and the Chimps</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="page-tabs">
+    <button type="button" class="page-tab active" data-page="invasion">Monster Invasion</button>
+    <button type="button" class="page-tab" data-page="donations">Guild Donations</button>
+  </div>
+
+  <div class="page-section active" id="page-invasion">
+    <div class="boards">
+      <section class="board gold">
+        <div class="board-head">
+          <p class="kicker" id="invasionKicker">Today &middot; __TODAY_LABEL__</p>
+          <h2>Monster Invasion</h2>
+          <p>Every member should attack daily. <span class="warn-inline">Red</span> means no attack logged for whatever you're viewing below.</p>
+          <div class="view-switch">
+            <button type="button" class="view-btn primary active" data-view="today">Today</button>
+            <button type="button" class="view-btn secondary" data-view="weekly">Weekly Total</button>
+            <select class="view-select" id="pastDaySelect" aria-label="Jump to a past day">
+              <option value="">Past days&hellip;</option>
+              __PAST_DAY_OPTIONS__
+            </select>
+          </div>
+        </div>
+        <ul class="rows" id="invasionRows"></ul>
+        <div class="view-message" id="invasionMessage" style="display:none;"></div>
+        <div class="board-foot">
+          <span class="lbl" id="invasionFootLabel">Guild total, today</span>
+          <span class="tot" id="invasionFootTotal">&mdash;</span>
+        </div>
+        <div class="roster-note" id="invasionNote"></div>
+      </section>
+    </div>
+  </div>
+
+  <div class="page-section" id="page-donations">
+    <div class="boards">
+      <section class="board jade">
+        <div class="board-head">
+          <p class="kicker">Weekly &middot; Resets Monday</p>
+          <h2>Guild Donations</h2>
+          <p>Donation points contributed this week. Rule of thumb per the guild charter: min. 2&times; daily donation.</p>
+        </div>
+        <ul class="rows">
+          __DONATION_ROWS__
+        </ul>
+        <div class="board-foot">
+          <span class="lbl">Guild total</span>
+          <span class="tot">__DONATION_TOTAL_FULL__</span>
+        </div>
+        <div class="roster-note"><b>Note —</b> __DONATION_NOTE__</div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<footer class="page-foot">california &middot; guild id __GUILD_ID__ &middot; tracked by hand, one screenshot at a time</footer>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.page-tab');
+  var sections = document.querySelectorAll('.page-section');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.toggle('active', t === tab); });
+      sections.forEach(function(s){ s.classList.toggle('active', s.id === 'page-' + tab.dataset.page); });
+    });
+  });
+})();
+</script>
+
+<script id="invasionData" type="application/json">__INVASION_DATA_JSON__</script>
+<script>
+(function(){
+  const DATA = JSON.parse(document.getElementById('invasionData').textContent);
+  const rowsEl = document.getElementById('invasionRows');
+  const msgEl = document.getElementById('invasionMessage');
+  const kickerEl = document.getElementById('invasionKicker');
+  const footLabelEl = document.getElementById('invasionFootLabel');
+  const footTotalEl = document.getElementById('invasionFootTotal');
+  const noteEl = document.getElementById('invasionNote');
+  const selectEl = document.getElementById('pastDaySelect');
+  const btnEls = document.querySelectorAll('.view-switch .view-btn');
+
+  function fmtAbbrev(n){
+    if(n >= 1e12) return (n/1e12).toFixed(2) + 'T';
+    if(n >= 1e9) return (n/1e9).toFixed(2) + 'B';
+    if(n >= 1e6) return (n/1e6).toFixed(2) + 'M';
+    if(n >= 1e3) return (n/1e3).toFixed(2) + 'K';
+    return String(Math.round(n));
+  }
+  function fmtInt(n){ return Math.round(n).toLocaleString('en-US'); }
+
+  function setActive(view){
+    btnEls.forEach(function(b){ b.classList.toggle('active', b.dataset.view === view); });
+    selectEl.classList.toggle('active', view !== 'today' && view !== 'weekly');
+    if(view === 'today' || view === 'weekly'){ selectEl.value = ''; }
+  }
+
+  function render(view){
+    setActive(typeof view === 'number' ? String(view) : view);
+
+    let dayIndex = null;
+    let isWeekly = view === 'weekly';
+    if(!isWeekly){ dayIndex = view === 'today' ? DATA.todayIndex : Number(view); }
+
+    const tracked = isWeekly
+      ? DATA.trackedDays.length > 0
+      : DATA.trackedDays.indexOf(dayIndex) !== -1;
+
+    if(!tracked){
+      rowsEl.style.display = 'none';
+      msgEl.style.display = 'block';
+      msgEl.textContent = 'No screenshot logged for ' + DATA.dayLabels[dayIndex] + ' yet. Check back once that day is tracked.';
+      kickerEl.textContent = DATA.dayLabels[dayIndex] + ' · not tracked yet';
+      footLabelEl.textContent = 'Guild total';
+      footTotalEl.textContent = '—';
+      noteEl.textContent = '';
+      return;
+    }
+
+    msgEl.style.display = 'none';
+    rowsEl.style.display = '';
+
+    const atkDays = isWeekly ? DATA.trackedDays : [dayIndex];
+
+    const rows = DATA.members.map(function(m){
+      var value = isWeekly
+        ? DATA.trackedDays.reduce(function(s, d){ return s + (m.byDay[d] || 0); }, 0)
+        : (m.byDay[dayIndex] || 0);
+
+      var atk = 0, atkMax = 0, atkKnown = false;
+      if(isWeekly){
+        // Weekly denominator is always 2 x tracked days, regardless of any
+        // individual day's inferred 0/0 -- everyone is judged against the
+        // same max once the week total is being shown.
+        atkMax = atkDays.length * 2;
+        atkDays.forEach(function(d){
+          var pair = m.atkByDay[d];
+          if(pair != null){ atkKnown = true; atk += pair[0]; }
+        });
+      } else {
+        var pair = m.atkByDay[dayIndex];
+        if(pair != null){ atkKnown = true; atk = pair[0]; atkMax = pair[1]; }
+      }
+
+      return { name: m.name, value: value, atk: atk, atkMax: atkMax, atkKnown: atkKnown };
+    });
+    rows.sort(function(a, b){ return b.value - a.value || a.name.localeCompare(b.name); });
+
+    const maxV = rows.length ? Math.max.apply(null, rows.map(function(r){ return r.value; })) || 1 : 1;
+    const guildTotal = rows.reduce(function(s, r){ return s + r.value; }, 0);
+    const attacked = rows.filter(function(r){ return r.value > 0; }).length;
+
+    rowsEl.innerHTML = rows.map(function(r, i){
+      var noAttack = r.value === 0;
+      var pct = noAttack ? 0 : Math.round(r.value / maxV * 100);
+      var display = noAttack ? '0' : fmtAbbrev(r.value);
+      var atkChip = '';
+      if(r.atkKnown && r.atkMax > 0){
+        var atkCls = r.atk >= r.atkMax ? 'atk-full' : (r.atk === 0 ? 'atk-none' : 'atk-partial');
+        atkChip = '<span class="chip ' + atkCls + '">' + r.atk + '/' + r.atkMax + ' atk</span>';
+      }
+      return '<li class="row' + (noAttack ? ' no-attack' : '') + '">' +
+        '<span class="rank">' + String(i + 1).padStart(2, '0') + '</span>' +
+        '<div class="who"><div class="name-line"><span class="name">' + r.name + '</span>' + atkChip + '</div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div></div>' +
+        '<div class="value">' + display + '</div></li>';
+    }).join('');
+
+    const atkKnownRows = rows.filter(function(r){ return r.atkKnown && r.atkMax > 0; });
+    const fullAtk = atkKnownRows.filter(function(r){ return r.atk >= r.atkMax; }).length;
+    const zeroAtk = atkKnownRows.filter(function(r){ return r.atk === 0; }).length;
+    const partialAtk = atkKnownRows.length - fullAtk - zeroAtk;
+    const atkNote = atkKnownRows.length
+      ? ' Attack compliance (min 2&times;/day): ' + fullAtk + ' fully compliant, ' +
+        partialAtk + ' partial, ' + zeroAtk + ' with none.'
+      : '';
+
+    if(isWeekly){
+      kickerEl.textContent = 'Weekly Total · ' + DATA.weekLabel;
+      footLabelEl.textContent = 'Guild total, week to date';
+      noteEl.innerHTML = '<b>Note —</b> ' + attacked + ' of ' + rows.length +
+        ' members have attacked at least one tracked day this week. The other ' + (rows.length - attacked) +
+        ', highlighted in red, have zero logged all week.' + atkNote;
+    } else if(view === 'today'){
+      kickerEl.textContent = 'Today · ' + DATA.dayLabels[dayIndex];
+      footLabelEl.textContent = 'Guild total, today';
+      noteEl.innerHTML = '<b>Note —</b> ' + attacked + ' of ' + rows.length + ' members attacked today (' +
+        DATA.dayLabels[dayIndex] + '). The other ' + (rows.length - attacked) + ' are highlighted in red.' + atkNote;
+    } else {
+      kickerEl.textContent = DATA.dayLabels[dayIndex];
+      footLabelEl.textContent = 'Guild total, ' + DATA.dayLabels[dayIndex];
+      noteEl.innerHTML = '<b>Note —</b> ' + attacked + ' of ' + rows.length + ' members attacked on ' +
+        DATA.dayLabels[dayIndex] + '. The other ' + (rows.length - attacked) + ' are highlighted in red.' + atkNote;
+    }
+    footTotalEl.textContent = isWeekly || view === 'today' || tracked ? fmtAbbrev(guildTotal) : '—';
+  }
+
+  btnEls.forEach(function(b){
+    b.addEventListener('click', function(){ render(b.dataset.view); });
+  });
+  selectEl.addEventListener('change', function(){
+    if(selectEl.value !== '') render(Number(selectEl.value));
+  });
+
+  render('today');
+})();
+</script>
