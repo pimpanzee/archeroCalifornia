@@ -8,7 +8,7 @@ INVASION_URL = "https://claude.ai/code/artifact/2d3a73a8-5995-4097-8446-2ff20c53
 DONATIONS_URL = "https://claude.ai/code/artifact/e6f3430a-77ad-41f9-a37a-cde5487c8593"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Aug 17, 2026"
+UPDATED_DATE = "Aug 18, 2026"
 
 
 def b64(name):
@@ -109,65 +109,134 @@ ATTACKS_MON = {
     "elementten": 2, "Drew2264": 2, "1RauMuong1": 0,
 }
 
+# Tuesday 8/18 -- damage ranking (1-44 of 47), read off the scrollable Guild
+# Member Ranking list. The 3 members missing from this ranking (Maskiert03,
+# IlTeino, Murkchoppa) are exactly the 3 who show 0 attacks below --
+# cross-validated against the Manage Member attack counts.
+invasion_logged_tue = {
+    "Pimpanzee": 4.52e12,
+    "elementten": 3.93e12,
+    "Flforever": 2.23e12,
+    "HyenA": 1.72e12,
+    "BenZoo": 1.63e12,
+    "REAPS": 1.32e12,
+    "fred21422": 1.17e12,
+    "Nad33m": 1.09e12,
+    "RonickForce": 1.01e12,
+    "DKDKDKDK": 824.44e9,
+    "Drew2264": 788.57e9,
+    "ScHlAnGE": 720.04e9,
+    "P107215255": 529.48e9,
+    "Rendaxx": 515.76e9,
+    "Atom369": 506.40e9,
+    "NHTPhat": 419.12e9,
+    "iBooneh": 372.43e9,
+    "Skytiti": 359.92e9,
+    "Altair1165": 357.93e9,
+    "SpudNugget18": 330.27e9,
+    "Stumbi97": 296.52e9,
+    "Drakias": 284.98e9,
+    "tEruPmA": 273.73e9,
+    "Ekkehard": 267.85e9,
+    "Ghost192": 258.90e9,
+    "Vomenjack": 212.19e9,
+    "BigRagaTheOppStopa": 185.73e9,
+    "Ibnt": 178.37e9,
+    "Tvojemama1": 166.59e9,
+    "AnyDockers": 157.83e9,
+    "choolzy": 128.82e9,
+    "saare": 114.00e9,
+    "zozoxo": 93.29e9,
+    "Saludan": 89.22e9,
+    "Rysor": 55.80e9,
+    "Jackylefeu": 55.36e9,
+    "Swidishh": 47.15e9,
+    "estimov": 46.23e9,
+    "NalaStomp": 45.81e9,
+    "Katitos": 30.86e9,
+    "1RauMuong1": 28.17e9,
+    "Mightykey": 17.68e9,
+    "Fredolay": 11.47e9,
+    "xavop": 10.30e9,
+    # Not visible in the scrolled ranking (Maskiert03, IlTeino, Murkchoppa) --
+    # confirmed 0 attacks for the day (see ATTACKS_TUE).
+}
+
+# Attack count (out of a max of 2/day) for Tuesday 8/18, read off the red
+# skull icon on the Manage Member / donation screens.
+ATTACKS_TUE = {
+    "Katitos": 2, "Fredolay": 1, "P107215255": 1, "REAPS": 2, "Mightykey": 2,
+    "Maskiert03": 0, "xavop": 1, "Flforever": 2, "Saludan": 2, "choolzy": 2,
+    "Stumbi97": 2, "ScHlAnGE": 2, "NalaStomp": 1, "Nad33m": 2, "IlTeino": 0,
+    "Altair1165": 2, "BigRagaTheOppStopa": 2, "Ekkehard": 2, "tEruPmA": 2,
+    "Ibnt": 2, "Vomenjack": 2, "zozoxo": 2, "Jackylefeu": 2, "AnyDockers": 2,
+    "Rysor": 2, "estimov": 2, "SpudNugget18": 2, "Swidishh": 2,
+    "Tvojemama1": 1, "Atom369": 2, "Murkchoppa": 0, "Ghost192": 2,
+    "NHTPhat": 2, "Skytiti": 2, "fred21422": 2, "Rendaxx": 2, "Drew2264": 2,
+    "DKDKDKDK": 2, "HyenA": 2, "BenZoo": 2, "saare": 2, "iBooneh": 2,
+    "Pimpanzee": 2, "Drakias": 2, "elementten": 2, "RonickForce": 2,
+    "1RauMuong1": 2,
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["8/17", "8/18", "8/19", "8/20", "8/21", "8/22", "8/23"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 0  # Monday -- the most recently tracked day
+TODAY_INDEX = 1  # Tuesday -- the most recently tracked day
 WEEK_LABEL = "wk of 8/17"
 
 # Roster (47/48 -- RESIIK's departure from last week persisted; no other
 # changes observed), read off the Manage Member / donation screens on 8/17.
 # Donation values below reset to this week's (8/17-8/23) fresh counts.
 donation_members = [
-    ("Rysor", "Guild Member", 800),
-    ("Swidishh", "Guild Member", 800),
-    ("Skytiti", "Guild Member", 480),
+    ("Rysor", "Guild Member", 1600),
+    ("Swidishh", "Guild Member", 1600),
+    ("Skytiti", "Guild Member", 960),
     ("Maskiert03", "Guild Member", 670),
-    ("Saludan", "Guild Member", 540),
-    ("xavop", "Guild Member", 460),
-    ("Flforever", "Guild Member", 760),
-    ("REAPS", "Guild Member", 780),
-    ("zozoxo", "Guild Member", 740),
-    ("choolzy", "Guild Member", 800),
-    ("P107215255", "Guild Member", 800),
-    ("IlTeino", "Guild Member", 780),
-    ("AnyDockers", "Guild Member", 800),
-    ("Atom369", "Guild Member", 0),
-    ("Katitos", "Guild Member", 760),
-    ("Mightykey", "Guild Member", 630),
-    ("BigRagaTheOppStopa", "Guild Member", 800),
-    ("Fredolay", "Guild Member", 420),
-    ("Altair1165", "Guild Member", 600),
-    ("Nad33m", "Guild Member", 500),
-    ("Tvojemama1", "Guild Member", 600),
-    ("tEruPmA", "Guild Member", 670),
-    ("Stumbi97", "Guild Member", 740),
-    ("NalaStomp", "Guild Member", 560),
-    ("Rendaxx", "Guild Member", 800),
-    ("ScHlAnGE", "Guild Member", 480),
-    ("Ghost192", "Guild Member", 560),
-    ("estimov", "Guild Member", 800),
-    ("Vomenjack", "Guild Member", 300),
-    ("NHTPhat", "Guild Member", 500),
-    ("SpudNugget18", "Guild Member", 500),
-    ("Ibnt", "Guild Member", 580),
-    ("fred21422", "Guild Member", 800),
-    ("Ekkehard", "Guild Member", 800),
-    ("Drakias", "Guild Member", 700),
-    ("BenZoo", "Elder", 800),
-    ("HyenA", "Elder", 800),
-    ("saare", "Elder", 760),
+    ("Saludan", "Guild Member", 1180),
+    ("xavop", "Guild Member", 1020),
+    ("Flforever", "Guild Member", 1560),
+    ("REAPS", "Guild Member", 1420),
+    ("zozoxo", "Guild Member", 1480),
+    ("choolzy", "Guild Member", 1600),
+    ("P107215255", "Guild Member", 1420),
+    ("IlTeino", "Guild Member", 1340),
+    ("AnyDockers", "Guild Member", 1600),
+    ("Atom369", "Guild Member", 120),
+    ("Katitos", "Guild Member", 1520),
+    ("Mightykey", "Guild Member", 1280),
+    ("BigRagaTheOppStopa", "Guild Member", 1600),
+    ("Fredolay", "Guild Member", 670),
+    ("Altair1165", "Guild Member", 1090),
+    ("Nad33m", "Guild Member", 1000),
+    ("Tvojemama1", "Guild Member", 1200),
+    ("tEruPmA", "Guild Member", 1370),
+    ("Stumbi97", "Guild Member", 1480),
+    ("NalaStomp", "Guild Member", 1360),
+    ("Rendaxx", "Guild Member", 1600),
+    ("ScHlAnGE", "Guild Member", 960),
+    ("Ghost192", "Guild Member", 1120),
+    ("estimov", "Guild Member", 1600),
+    ("Vomenjack", "Guild Member", 600),
+    ("NHTPhat", "Guild Member", 1000),
+    ("SpudNugget18", "Guild Member", 1000),
+    ("Ibnt", "Guild Member", 1080),
+    ("fred21422", "Guild Member", 1600),
+    ("Ekkehard", "Guild Member", 1600),
+    ("Drakias", "Guild Member", 1400),
+    ("BenZoo", "Elder", 1600),
+    ("HyenA", "Elder", 1600),
+    ("saare", "Elder", 1520),
     ("Murkchoppa", "Elder", 0),
-    ("iBooneh", "Elder", 600),
-    ("Jackylefeu", "Guild Member", 0),
-    ("Pimpanzee", "Leader", 800),
-    ("Drew2264", "Vice Leader", 760),
-    ("RonickForce", "Vice Leader", 800),
-    ("1RauMuong1", "Vice Leader", 300),
-    ("elementten", "Vice Leader", 800),
-    ("DKDKDKDK", "Elder", 400),
+    ("iBooneh", "Elder", 1130),
+    ("Jackylefeu", "Guild Member", 740),
+    ("Pimpanzee", "Leader", 1600),
+    ("Drew2264", "Vice Leader", 1520),
+    ("RonickForce", "Vice Leader", 1600),
+    ("1RauMuong1", "Vice Leader", 1100),
+    ("elementten", "Vice Leader", 1600),
+    ("DKDKDKDK", "Elder", 800),
 ]
 donation_members.sort(key=lambda m: m[2], reverse=True)
 
@@ -180,6 +249,7 @@ roster = sorted({(name, role) for name, role, _ in donation_members})
 # where Monday had to be inferred from damage-ranking presence alone.
 ATTACK_LOGS = {
     0: {name: (ATTACKS_MON.get(name, 0), 2) for name, role in roster},
+    1: {name: (ATTACKS_TUE.get(name, 0), 2) for name, role in roster},
 }
 
 

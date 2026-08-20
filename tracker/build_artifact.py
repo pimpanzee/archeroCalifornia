@@ -64,8 +64,7 @@ replacements = {
     "__DONATION_ROWS__": donation_rows_html,
     "__DONATION_TOTAL_FULL__": f"{donation_total:,}",
     "__DONATION_NOTE__": (
-        "New week reset (wk of 8/17). All 47 members have donation counts logged as of 8/17 "
-        "&mdash; Atom369, Murkchoppa, and Jackylefeu currently read 0."
+        "All 47 members have donation counts logged as of 8/18 &mdash; Murkchoppa currently reads 0."
     ),
 }
 
