@@ -8,7 +8,7 @@ INVASION_URL = "https://claude.ai/code/artifact/2d3a73a8-5995-4097-8446-2ff20c53
 DONATIONS_URL = "https://claude.ai/code/artifact/e6f3430a-77ad-41f9-a37a-cde5487c8593"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Aug 18, 2026"
+UPDATED_DATE = "Aug 19, 2026"
 
 
 def b64(name):
@@ -178,12 +178,70 @@ ATTACKS_TUE = {
     "1RauMuong1": 2,
 }
 
+# Wednesday 8/19 -- damage ranking (1-43 of 47), read off the scrollable Guild
+# Member Ranking list. No Manage Member / donation screenshots came in this
+# batch (the upload's 8th image turned out to be a stray screenshot of the
+# Shortcuts app itself, not a game screen), so there's no real attack-count
+# or donation data for today. Backfilled the same way the very first week's
+# Monday was, before we had real attack screens: presence in the ranking is
+# treated as a confirmed 2/2, absence as an unconfirmed 0/0 (not 0/2) so it
+# doesn't unfairly penalize anyone. Donation values carried forward unchanged
+# from 8/18 -- no new read today.
+invasion_logged_wed = {
+    "Pimpanzee": 5.50e12,
+    "HyenA": 3.36e12,
+    "RonickForce": 3.23e12,
+    "elementten": 2.72e12,
+    "Flforever": 1.86e12,
+    "BenZoo": 1.37e12,
+    "DKDKDKDK": 1.12e12,
+    "Rendaxx": 971.90e9,
+    "Drew2264": 886.41e9,
+    "fred21422": 738.53e9,
+    "Stumbi97": 471.64e9,
+    "Skytiti": 418.62e9,
+    "iBooneh": 381.84e9,
+    "AnyDockers": 315.13e9,
+    "IlTeino": 298.90e9,
+    "P107215255": 281.05e9,
+    "Drakias": 251.93e9,
+    "Altair1165": 243.60e9,
+    "NHTPhat": 240.37e9,
+    "Nad33m": 240.33e9,
+    "Ibnt": 179.71e9,
+    "BigRagaTheOppStopa": 164.64e9,
+    "1RauMuong1": 143.11e9,
+    "Rysor": 135.96e9,
+    "Murkchoppa": 128.77e9,
+    "ScHlAnGE": 123.26e9,
+    "SpudNugget18": 91.24e9,
+    "Ghost192": 76.86e9,
+    "NalaStomp": 69.05e9,
+    "REAPS": 66.69e9,
+    "Saludan": 53.97e9,
+    "saare": 52.23e9,
+    "Jackylefeu": 43.87e9,
+    "Vomenjack": 43.50e9,
+    "tEruPmA": 43.02e9,
+    "choolzy": 33.14e9,
+    "Fredolay": 29.14e9,
+    "Maskiert03": 12.99e9,
+    "Swidishh": 11.92e9,
+    "estimov": 10.10e9,
+    "zozoxo": 5.85e9,
+    "Katitos": 5.34e9,
+    "xavop": 4.96e9,
+    # Not visible in the scrolled ranking (Atom369, Mightykey, Tvojemama1,
+    # Ekkehard) -- no attack-count screen today to confirm either way, so
+    # these are NOT treated as 0-attack call-out candidates (see note above).
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["8/17", "8/18", "8/19", "8/20", "8/21", "8/22", "8/23"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 1  # Tuesday -- the most recently tracked day
+TODAY_INDEX = 2  # Wednesday -- the most recently tracked day
 WEEK_LABEL = "wk of 8/17"
 
 # Roster (47/48 -- RESIIK's departure from last week persisted; no other
@@ -250,6 +308,7 @@ roster = sorted({(name, role) for name, role, _ in donation_members})
 ATTACK_LOGS = {
     0: {name: (ATTACKS_MON.get(name, 0), 2) for name, role in roster},
     1: {name: (ATTACKS_TUE.get(name, 0), 2) for name, role in roster},
+    2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
 }
 
 
