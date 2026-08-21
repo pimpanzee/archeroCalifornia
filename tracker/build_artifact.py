@@ -64,7 +64,7 @@ replacements = {
     "__DONATION_ROWS__": donation_rows_html,
     "__DONATION_TOTAL_FULL__": f"{donation_total:,}",
     "__DONATION_NOTE__": (
-        "Donation counts as of 8/18 (no new donation screenshots came in for 8/19) "
+        "Donation counts as of 8/18 (no new donation screenshots came in for 8/19 or 8/20) "
         "&mdash; Murkchoppa currently reads 0."
     ),
 }
