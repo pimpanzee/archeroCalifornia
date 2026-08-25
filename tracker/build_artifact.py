@@ -5,7 +5,9 @@ from pathlib import Path
 import shared_data as sd
 
 TRACKER_DIR = Path(__file__).resolve().parent
+REPO_DIR = TRACKER_DIR.parent
 OUTPUT_DIR = Path(os.environ.get("TRACKER_OUTPUT_DIR", "/tmp"))
+DOCS_DIR = REPO_DIR / "docs"
 
 past_day_options_html = "\n            ".join(
     f'<option value="{i}">{sd.DAY_FULL_LABELS[i]}</option>'
@@ -76,3 +78,8 @@ for k, v in replacements.items():
 out_path = OUTPUT_DIR / "guild-roster.html"
 out_path.write_text(template)
 print("built", len(template), "chars ->", out_path)
+
+DOCS_DIR.mkdir(parents=True, exist_ok=True)
+docs_path = DOCS_DIR / "index.html"
+docs_path.write_text(template)
+print("built", len(template), "chars ->", docs_path)

@@ -3,10 +3,15 @@ from pathlib import Path
 
 FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 
-# The one live tracker URL -- donations were folded into this page as a tab
-# long ago. The old standalone donations page (e6f3430a-...) is retired and
-# now just redirects here; don't resurrect a second URL for it.
-INVASION_URL = "https://claude.ai/code/artifact/2d3a73a8-5995-4097-8446-2ff20c533627"
+# The one live tracker URL. Moved off claude.ai Artifacts (2d3a73a8-...) to
+# GitHub Pages on 8/25 -- Artifacts have a "pinned version" feature that can
+# freeze what viewers see independent of what's actually published, and
+# that's exactly what happened to guild members (stuck on 8/1 data for
+# weeks). Plain static hosting has no such concept: every push to docs/ on
+# main is what's live, immediately, for everyone. The old Artifact
+# (2d3a73a8-...) and the older retired donations page (e6f3430a-...) are
+# left alone but no longer the source of truth.
+INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
 UPDATED_DATE = "Aug 24, 2026"
