@@ -3,9 +3,10 @@ from pathlib import Path
 
 FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 
-# Known published URLs -- update DONATIONS_URL after the donations page's first publish.
+# The one live tracker URL -- donations were folded into this page as a tab
+# long ago. The old standalone donations page (e6f3430a-...) is retired and
+# now just redirects here; don't resurrect a second URL for it.
 INVASION_URL = "https://claude.ai/code/artifact/2d3a73a8-5995-4097-8446-2ff20c533627"
-DONATIONS_URL = "https://claude.ai/code/artifact/e6f3430a-77ad-41f9-a37a-cde5487c8593"
 
 GUILD_ID = "90754"
 UPDATED_DATE = "Aug 24, 2026"
