@@ -8,7 +8,7 @@ INVASION_URL = "https://claude.ai/code/artifact/2d3a73a8-5995-4097-8446-2ff20c53
 DONATIONS_URL = "https://claude.ai/code/artifact/e6f3430a-77ad-41f9-a37a-cde5487c8593"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Aug 21, 2026"
+UPDATED_DATE = "Aug 24, 2026"
 
 
 def b64(name):
@@ -35,328 +35,82 @@ MASTHEAD_REPLACEMENTS = {
 }
 
 # ---- Data ----
-# New week: Mon 8/17 - Sun 8/23. Roster carries over from last week at
-# 47/48 (RESIIK's departure persisted; no other roster changes observed).
-# Unlike the previous week's Monday, this week we have the actual Manage
-# Member attack-count screen for Monday, so ATTACKS_MON is real data, not an
-# inferred backfill. Damage ranking (1-43 of 47) read off the scrollable
-# Guild Member Ranking list; the 4 members missing from it (Maskiert03,
-# NalaStomp, Mightykey, 1RauMuong1) are exactly the 4 who show 0 attacks
-# below. estimov (rank 31) fell in a gap between two ranking screenshots and
-# wasn't directly captured -- its value here is a midpoint estimate bounded
-# by its neighbors (ScHlAnGE 66.58B above, zozoxo 51.87B below).
+# New week: Mon 8/24 - Sun 8/30. Confirmed by the growth trend across
+# previous Mondays' #1 damage (2.90T wk1 -> 3.98T wk2 -> 5.56T wk3), not by
+# a donation reset (no Manage Member / donation screenshots came in this
+# batch, so donation values below are still the stale 8/18 read, carried
+# forward yet again pending a fresh donation screenshot -- they almost
+# certainly don't reflect this week's actual (probably reset) counts).
+# Damage ranking (1-46 of an unknown-but-larger roster) read off the
+# scrollable Guild Member Ranking list. One new member spotted: Papykique
+# (rank 10, 716.18B) -- added to the roster below, role/donation unknown.
+# Atom369 and Murkchoppa are missing from this ranking; with no attack
+# screen to check, treated as unconfirmed (0, 0) rather than assumed absent
+# from the guild or assumed 0-attack.
 invasion_logged_mon = {
-    "HyenA": 3.98e12,
-    "Flforever": 2.98e12,
-    "Pimpanzee": 2.94e12,
-    "RonickForce": 2.30e12,
-    "elementten": 1.40e12,
-    "fred21422": 1.35e12,
-    "BenZoo": 1.24e12,
-    "Nad33m": 1.20e12,
-    "Drew2264": 966.15e9,
-    "NHTPhat": 790.50e9,
-    "iBooneh": 730.62e9,
-    "Saludan": 659.44e9,
-    "REAPS": 623.87e9,
-    "Altair1165": 454.07e9,
-    "Rendaxx": 413.76e9,
-    "DKDKDKDK": 399.53e9,
-    "P107215255": 381.92e9,
-    "SpudNugget18": 211.67e9,
-    "Ekkehard": 200.75e9,
-    "AnyDockers": 189.72e9,
-    "Drakias": 177.99e9,
-    "Rysor": 165.10e9,
-    "Ibnt": 162.01e9,
-    "BigRagaTheOppStopa": 149.90e9,
-    "Tvojemama1": 148.61e9,
-    "Skytiti": 119.26e9,
-    "saare": 89.55e9,
-    "Ghost192": 86.87e9,
-    "tEruPmA": 82.02e9,
-    "ScHlAnGE": 66.58e9,
-    "estimov": 59.00e9,  # inferred midpoint -- see note above
-    "zozoxo": 51.87e9,
-    "choolzy": 51.72e9,
-    "Jackylefeu": 46.75e9,
-    "Swidishh": 45.41e9,
-    "Stumbi97": 41.67e9,
-    "IlTeino": 39.11e9,
-    "Katitos": 34.40e9,
-    "Vomenjack": 24.58e9,
-    "Atom369": 14.61e9,
-    "Murkchoppa": 12.36e9,
-    "Fredolay": 9.20e9,
-    "xavop": 7.47e9,
-    # Not visible in the scrolled ranking (Maskiert03, NalaStomp, Mightykey,
-    # 1RauMuong1) -- confirmed 0 attacks for the day (see ATTACKS_MON).
-}
-
-# Attack count (out of a max of 2/day) for Monday 8/17, read off the red
-# skull icon on the Manage Member / donation screens.
-ATTACKS_MON = {
-    "Stumbi97": 2, "tEruPmA": 2, "ScHlAnGE": 2, "Maskiert03": 0,
-    "NalaStomp": 0, "Mightykey": 0, "Nad33m": 2, "Ekkehard": 2, "zozoxo": 2,
-    "Flforever": 2, "Katitos": 2, "choolzy": 2, "Tvojemama1": 2,
-    "Jackylefeu": 2, "AnyDockers": 2, "BigRagaTheOppStopa": 2, "REAPS": 2,
-    "xavop": 1, "Atom369": 2, "Altair1165": 2, "Rendaxx": 2, "Fredolay": 1,
-    "IlTeino": 2, "Ibnt": 2, "NHTPhat": 2, "Drakias": 2, "Swidishh": 2,
-    "P107215255": 2, "Saludan": 2, "Rysor": 2, "Murkchoppa": 1,
-    "SpudNugget18": 2, "fred21422": 2, "estimov": 2, "Skytiti": 1,
-    "Ghost192": 2, "RonickForce": 2, "DKDKDKDK": 2, "iBooneh": 2,
-    "saare": 2, "HyenA": 2, "BenZoo": 2, "Pimpanzee": 2, "Vomenjack": 1,
-    "elementten": 2, "Drew2264": 2, "1RauMuong1": 0,
-}
-
-# Tuesday 8/18 -- damage ranking (1-44 of 47), read off the scrollable Guild
-# Member Ranking list. The 3 members missing from this ranking (Maskiert03,
-# IlTeino, Murkchoppa) are exactly the 3 who show 0 attacks below --
-# cross-validated against the Manage Member attack counts.
-invasion_logged_tue = {
-    "Pimpanzee": 4.52e12,
-    "elementten": 3.93e12,
-    "Flforever": 2.23e12,
-    "HyenA": 1.72e12,
-    "BenZoo": 1.63e12,
-    "REAPS": 1.32e12,
-    "fred21422": 1.17e12,
-    "Nad33m": 1.09e12,
-    "RonickForce": 1.01e12,
-    "DKDKDKDK": 824.44e9,
-    "Drew2264": 788.57e9,
-    "ScHlAnGE": 720.04e9,
-    "P107215255": 529.48e9,
-    "Rendaxx": 515.76e9,
-    "Atom369": 506.40e9,
-    "NHTPhat": 419.12e9,
-    "iBooneh": 372.43e9,
-    "Skytiti": 359.92e9,
-    "Altair1165": 357.93e9,
-    "SpudNugget18": 330.27e9,
-    "Stumbi97": 296.52e9,
-    "Drakias": 284.98e9,
-    "tEruPmA": 273.73e9,
-    "Ekkehard": 267.85e9,
-    "Ghost192": 258.90e9,
-    "Vomenjack": 212.19e9,
-    "BigRagaTheOppStopa": 185.73e9,
-    "Ibnt": 178.37e9,
-    "Tvojemama1": 166.59e9,
-    "AnyDockers": 157.83e9,
-    "choolzy": 128.82e9,
-    "saare": 114.00e9,
-    "zozoxo": 93.29e9,
-    "Saludan": 89.22e9,
-    "Rysor": 55.80e9,
-    "Jackylefeu": 55.36e9,
-    "Swidishh": 47.15e9,
-    "estimov": 46.23e9,
-    "NalaStomp": 45.81e9,
-    "Katitos": 30.86e9,
-    "1RauMuong1": 28.17e9,
-    "Mightykey": 17.68e9,
-    "Fredolay": 11.47e9,
-    "xavop": 10.30e9,
-    # Not visible in the scrolled ranking (Maskiert03, IlTeino, Murkchoppa) --
-    # confirmed 0 attacks for the day (see ATTACKS_TUE).
-}
-
-# Attack count (out of a max of 2/day) for Tuesday 8/18, read off the red
-# skull icon on the Manage Member / donation screens.
-ATTACKS_TUE = {
-    "Katitos": 2, "Fredolay": 1, "P107215255": 1, "REAPS": 2, "Mightykey": 2,
-    "Maskiert03": 0, "xavop": 1, "Flforever": 2, "Saludan": 2, "choolzy": 2,
-    "Stumbi97": 2, "ScHlAnGE": 2, "NalaStomp": 1, "Nad33m": 2, "IlTeino": 0,
-    "Altair1165": 2, "BigRagaTheOppStopa": 2, "Ekkehard": 2, "tEruPmA": 2,
-    "Ibnt": 2, "Vomenjack": 2, "zozoxo": 2, "Jackylefeu": 2, "AnyDockers": 2,
-    "Rysor": 2, "estimov": 2, "SpudNugget18": 2, "Swidishh": 2,
-    "Tvojemama1": 1, "Atom369": 2, "Murkchoppa": 0, "Ghost192": 2,
-    "NHTPhat": 2, "Skytiti": 2, "fred21422": 2, "Rendaxx": 2, "Drew2264": 2,
-    "DKDKDKDK": 2, "HyenA": 2, "BenZoo": 2, "saare": 2, "iBooneh": 2,
-    "Pimpanzee": 2, "Drakias": 2, "elementten": 2, "RonickForce": 2,
-    "1RauMuong1": 2,
-}
-
-# Wednesday 8/19 -- damage ranking (1-43 of 47), read off the scrollable Guild
-# Member Ranking list. No Manage Member / donation screenshots came in this
-# batch (the upload's 8th image turned out to be a stray screenshot of the
-# Shortcuts app itself, not a game screen), so there's no real attack-count
-# or donation data for today. Backfilled the same way the very first week's
-# Monday was, before we had real attack screens: presence in the ranking is
-# treated as a confirmed 2/2, absence as an unconfirmed 0/0 (not 0/2) so it
-# doesn't unfairly penalize anyone. Donation values carried forward unchanged
-# from 8/18 -- no new read today.
-invasion_logged_wed = {
-    "Pimpanzee": 5.50e12,
-    "HyenA": 3.36e12,
-    "RonickForce": 3.23e12,
-    "elementten": 2.72e12,
-    "Flforever": 1.86e12,
-    "BenZoo": 1.37e12,
-    "DKDKDKDK": 1.12e12,
-    "Rendaxx": 971.90e9,
-    "Drew2264": 886.41e9,
-    "fred21422": 738.53e9,
-    "Stumbi97": 471.64e9,
-    "Skytiti": 418.62e9,
-    "iBooneh": 381.84e9,
-    "AnyDockers": 315.13e9,
-    "IlTeino": 298.90e9,
-    "P107215255": 281.05e9,
-    "Drakias": 251.93e9,
-    "Altair1165": 243.60e9,
-    "NHTPhat": 240.37e9,
-    "Nad33m": 240.33e9,
-    "Ibnt": 179.71e9,
-    "BigRagaTheOppStopa": 164.64e9,
-    "1RauMuong1": 143.11e9,
-    "Rysor": 135.96e9,
-    "Murkchoppa": 128.77e9,
-    "ScHlAnGE": 123.26e9,
-    "SpudNugget18": 91.24e9,
-    "Ghost192": 76.86e9,
-    "NalaStomp": 69.05e9,
-    "REAPS": 66.69e9,
-    "Saludan": 53.97e9,
-    "saare": 52.23e9,
-    "Jackylefeu": 43.87e9,
-    "Vomenjack": 43.50e9,
-    "tEruPmA": 43.02e9,
-    "choolzy": 33.14e9,
-    "Fredolay": 29.14e9,
-    "Maskiert03": 12.99e9,
-    "Swidishh": 11.92e9,
-    "estimov": 10.10e9,
-    "zozoxo": 5.85e9,
-    "Katitos": 5.34e9,
-    "xavop": 4.96e9,
-    # Not visible in the scrolled ranking (Atom369, Mightykey, Tvojemama1,
-    # Ekkehard) -- no attack-count screen today to confirm either way, so
-    # these are NOT treated as 0-attack call-out candidates (see note above).
-}
-
-# Thursday 8/20 -- damage ranking (1-44 of 47), read off the scrollable Guild
-# Member Ranking list. No Manage Member / donation screenshots came in this
-# batch either (same as 8/19), so no real attack-count or donation data
-# today. Backfilled the same way: presence in the ranking treated as a
-# confirmed 2/2, absence as an unconfirmed 0/0 (not penalized). Donation
-# values carried forward unchanged from 8/18 -- no new read since then.
-invasion_logged_thu = {
-    "Pimpanzee": 6.28e12,
-    "elementten": 4.15e12,
-    "HyenA": 4.14e12,
-    "BenZoo": 3.22e12,
-    "DKDKDKDK": 2.72e12,
-    "fred21422": 2.09e12,
-    "Flforever": 1.83e12,
-    "Nad33m": 1.81e12,
-    "RonickForce": 1.49e12,
-    "iBooneh": 1.00e12,
-    "Drew2264": 921.56e9,
-    "P107215255": 867.12e9,
-    "Ghost192": 850.40e9,
-    "Rendaxx": 846.10e9,
-    "ScHlAnGE": 524.61e9,
-    "1RauMuong1": 520.66e9,
-    "SpudNugget18": 461.35e9,
-    "REAPS": 365.49e9,
-    "Stumbi97": 364.25e9,
-    "saare": 285.54e9,
-    "Tvojemama1": 283.85e9,
-    "Ibnt": 279.34e9,
-    "tEruPmA": 208.76e9,
-    "Drakias": 190.74e9,
-    "NHTPhat": 189.50e9,
-    "Altair1165": 180.63e9,
-    "Atom369": 163.88e9,
-    "Ekkehard": 161.06e9,
-    "NalaStomp": 159.97e9,
-    "zozoxo": 106.99e9,
-    "Rysor": 100.15e9,
-    "AnyDockers": 99.29e9,
-    "Skytiti": 97.75e9,
-    "BigRagaTheOppStopa": 84.76e9,
-    "choolzy": 54.34e9,
-    "Katitos": 40.84e9,
-    "Maskiert03": 38.36e9,
-    "estimov": 35.57e9,
-    "Jackylefeu": 34.85e9,
-    "Swidishh": 23.66e9,
-    "IlTeino": 22.37e9,
-    "xavop": 12.06e9,
-    "Mightykey": 10.30e9,
-    "Fredolay": 8.22e9,
-    # Not visible in the scrolled ranking (Saludan, Vomenjack, Murkchoppa) --
-    # no attack-count screen today to confirm either way, so these are NOT
-    # treated as 0-attack call-out candidates (see note above).
-}
-
-# Friday 8/21 -- damage ranking (1-42 of 47), read off the scrollable Guild
-# Member Ranking list. No Manage Member / donation screenshots came in this
-# batch either (same as 8/19 and 8/20), so no real attack-count or donation
-# data today. Backfilled the same way: presence in the ranking treated as a
-# confirmed 2/2, absence as an unconfirmed 0/0 (not penalized). Donation
-# values carried forward unchanged from 8/18 -- no new read since then.
-invasion_logged_fri = {
-    "elementten": 7.64e12,
-    "Drew2264": 6.36e12,
-    "Flforever": 3.99e12,
-    "RonickForce": 3.51e12,
-    "HyenA": 2.87e12,
-    "BenZoo": 2.58e12,
-    "Nad33m": 1.68e12,
-    "ScHlAnGE": 1.29e12,
-    "Pimpanzee": 1.23e12,
-    "fred21422": 1.12e12,
-    "DKDKDKDK": 851.00e9,
-    "Skytiti": 787.73e9,
-    "NHTPhat": 551.88e9,
-    "Stumbi97": 474.46e9,
-    "Saludan": 310.99e9,
-    "Ibnt": 301.42e9,
-    "Ghost192": 290.49e9,
-    "Rysor": 259.30e9,
-    "Drakias": 245.66e9,
-    "iBooneh": 230.48e9,
-    "Altair1165": 190.42e9,
-    "tEruPmA": 181.24e9,
-    "SpudNugget18": 179.49e9,
-    "P107215255": 168.33e9,
-    "Tvojemama1": 148.98e9,
-    "BigRagaTheOppStopa": 129.23e9,
-    "AnyDockers": 74.13e9,
-    "Vomenjack": 63.46e9,
-    "xavop": 53.89e9,
-    "Rendaxx": 53.39e9,
-    "Jackylefeu": 49.94e9,
-    "saare": 48.97e9,
-    "choolzy": 34.07e9,
-    "REAPS": 31.71e9,
-    "estimov": 30.43e9,
-    "Katitos": 30.35e9,
-    "1RauMuong1": 30.15e9,
-    "IlTeino": 27.47e9,
-    "Ekkehard": 25.04e9,
-    "Swidishh": 13.51e9,
-    "zozoxo": 12.61e9,
-    "Fredolay": 11.97e9,
-    # Not visible in the scrolled ranking (Maskiert03, Atom369, NalaStomp,
-    # Murkchoppa, Mightykey) -- no attack-count screen today to confirm
-    # either way, so these are NOT treated as 0-attack call-out candidates.
+    "Pimpanzee": 5.56e12,
+    "HyenA": 5.25e12,
+    "RonickForce": 4.63e12,
+    "elementten": 4.03e12,
+    "Flforever": 2.61e12,
+    "fred21422": 2.00e12,
+    "DKDKDKDK": 902.66e9,
+    "Saludan": 874.38e9,
+    "REAPS": 756.83e9,
+    "Papykique": 716.18e9,
+    "Altair1165": 624.33e9,
+    "P107215255": 529.60e9,
+    "BenZoo": 508.84e9,
+    "Drew2264": 495.62e9,
+    "NHTPhat": 460.24e9,
+    "iBooneh": 386.56e9,
+    "Stumbi97": 320.49e9,
+    "Ghost192": 284.95e9,
+    "Tvojemama1": 247.84e9,
+    "Nad33m": 216.27e9,
+    "tEruPmA": 213.86e9,
+    "Skytiti": 213.12e9,
+    "SpudNugget18": 210.67e9,
+    "Ekkehard": 195.37e9,
+    "Drakias": 164.40e9,
+    "Rendaxx": 124.55e9,
+    "choolzy": 116.48e9,
+    "ScHlAnGE": 81.78e9,
+    "1RauMuong1": 74.73e9,
+    "Rysor": 70.36e9,
+    "Swidishh": 64.88e9,
+    "Ibnt": 63.71e9,
+    "AnyDockers": 54.51e9,
+    "estimov": 48.89e9,
+    "Fredolay": 37.46e9,
+    "Vomenjack": 34.25e9,
+    "NalaStomp": 34.18e9,
+    "Jackylefeu": 31.19e9,
+    "BigRagaTheOppStopa": 28.60e9,
+    "IlTeino": 26.36e9,
+    "zozoxo": 21.53e9,
+    "Katitos": 20.44e9,
+    "Maskiert03": 17.87e9,
+    "saare": 13.68e9,
+    "Mightykey": 8.95e9,
+    "xavop": 5.63e9,
+    # Not visible in the scrolled ranking (Atom369, Murkchoppa) -- no
+    # attack-count screen today to confirm either way, so these are NOT
+    # treated as 0-attack call-out candidates.
 }
 
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-DAY_DATES = ["8/17", "8/18", "8/19", "8/20", "8/21", "8/22", "8/23"]
+DAY_DATES = ["8/24", "8/25", "8/26", "8/27", "8/28", "8/29", "8/30"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri}
+DAY_LOGS = {0: invasion_logged_mon}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 4  # Friday -- the most recently tracked day
-WEEK_LABEL = "wk of 8/17"
+TODAY_INDEX = 0  # Monday -- the most recently tracked day
+WEEK_LABEL = "wk of 8/24"
 
-# Roster (47/48 -- RESIIK's departure from last week persisted; no other
-# changes observed), read off the Manage Member / donation screens on 8/17.
-# Donation values below reset to this week's (8/17-8/23) fresh counts.
+# Roster carries over from last week (Papykique added as a new member seen
+# in this batch's ranking; role/donation unknown so defaulted). Donation
+# values are the stale 8/18 read carried forward again -- no fresh donation
+# screenshot has come in since (see note above invasion_logged_mon).
 donation_members = [
     ("Rysor", "Guild Member", 1600),
     ("Swidishh", "Guild Member", 1600),
@@ -405,6 +159,7 @@ donation_members = [
     ("1RauMuong1", "Vice Leader", 1100),
     ("elementten", "Vice Leader", 1600),
     ("DKDKDKDK", "Elder", 800),
+    ("Papykique", "Guild Member", 0),
 ]
 donation_members.sort(key=lambda m: m[2], reverse=True)
 
@@ -412,15 +167,12 @@ donation_members.sort(key=lambda m: m[2], reverse=True)
 # only screenshot set that covered every member.
 roster = sorted({(name, role) for name, role, _ in donation_members})
 
-# Attack counts as (attacks, max) pairs per tracked day. This week Monday
-# has real per-member attack-count data (ATTACKS_MON), unlike last week
-# where Monday had to be inferred from damage-ranking presence alone.
+# Attack counts as (attacks, max) pairs per tracked day. No attack-count
+# screen this week yet, so backfilled the same way as recent no-screenshot
+# days: presence in the ranking treated as a confirmed 2/2, absence as an
+# unconfirmed 0/0 (not penalized).
 ATTACK_LOGS = {
-    0: {name: (ATTACKS_MON.get(name, 0), 2) for name, role in roster},
-    1: {name: (ATTACKS_TUE.get(name, 0), 2) for name, role in roster},
-    2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
-    3: {name: ((2, 2) if name in invasion_logged_thu else (0, 0)) for name, role in roster},
-    4: {name: ((2, 2) if name in invasion_logged_fri else (0, 0)) for name, role in roster},
+    0: {name: ((2, 2) if name in invasion_logged_mon else (0, 0)) for name, role in roster},
 }
 
 
