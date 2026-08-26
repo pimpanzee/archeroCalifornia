@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Aug 24, 2026"
+UPDATED_DATE = "Aug 25, 2026"
 
 
 def b64(name):
@@ -105,12 +105,69 @@ invasion_logged_mon = {
     # treated as 0-attack call-out candidates.
 }
 
+# Tue 8/25: full clean read of the Guild Member Ranking list -- all 48
+# roster members accounted for exactly once (podium top-3: elementten,
+# RonickForce, Flforever; ranks 4-48: the remaining 45), so no missing
+# members and nothing to treat as unconfirmed this time. No Manage Member
+# / donation or attack-count screenshots came in with this batch, so
+# donation values are still the stale 8/18 read, carried forward again.
+invasion_logged_tue = {
+    "elementten": 5.80e12,
+    "RonickForce": 4.38e12,
+    "Flforever": 3.54e12,
+    "Pimpanzee": 3.23e12,
+    "Nad33m": 2.30e12,
+    "HyenA": 1.64e12,
+    "Drew2264": 1.18e12,
+    "BenZoo": 1.17e12,
+    "Ghost192": 1.02e12,
+    "fred21422": 842.91e9,
+    "ScHlAnGE": 490.49e9,
+    "iBooneh": 476.22e9,
+    "AnyDockers": 464.21e9,
+    "DKDKDKDK": 414.37e9,
+    "Saludan": 411.29e9,
+    "Atom369": 371.36e9,
+    "Altair1165": 347.16e9,
+    "Stumbi97": 344.34e9,
+    "choolzy": 279.13e9,
+    "Ekkehard": 253.80e9,
+    "NHTPhat": 224.40e9,
+    "SpudNugget18": 222.08e9,
+    "Tvojemama1": 221.01e9,
+    "Papykique": 218.64e9,
+    "tEruPmA": 202.42e9,
+    "P107215255": 186.48e9,
+    "Drakias": 174.93e9,
+    "REAPS": 171.81e9,
+    "zozoxo": 171.11e9,
+    "1RauMuong1": 170.08e9,
+    "Murkchoppa": 164.67e9,
+    "Skytiti": 142.39e9,
+    "BigRagaTheOppStopa": 140.28e9,
+    "Rysor": 125.94e9,
+    "Ibnt": 122.03e9,
+    "IlTeino": 116.60e9,
+    "NalaStomp": 112.16e9,
+    "Rendaxx": 93.71e9,
+    "Jackylefeu": 92.29e9,
+    "Katitos": 60.25e9,
+    "xavop": 49.57e9,
+    "saare": 45.41e9,
+    "Maskiert03": 43.56e9,
+    "Vomenjack": 33.32e9,
+    "estimov": 21.79e9,
+    "Swidishh": 16.46e9,
+    "Mightykey": 16.44e9,
+    "Fredolay": 5.32e9,
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["8/24", "8/25", "8/26", "8/27", "8/28", "8/29", "8/30"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 0  # Monday -- the most recently tracked day
+TODAY_INDEX = 1  # Tuesday -- the most recently tracked day
 WEEK_LABEL = "wk of 8/24"
 
 # Roster carries over from last week (Papykique added as a new member seen
@@ -179,6 +236,7 @@ roster = sorted({(name, role) for name, role, _ in donation_members})
 # unconfirmed 0/0 (not penalized).
 ATTACK_LOGS = {
     0: {name: ((2, 2) if name in invasion_logged_mon else (0, 0)) for name, role in roster},
+    1: {name: ((2, 2) if name in invasion_logged_tue else (0, 0)) for name, role in roster},
 }
 
 
