@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Aug 25, 2026"
+UPDATED_DATE = "Aug 26, 2026"
 
 
 def b64(name):
@@ -162,12 +162,64 @@ invasion_logged_tue = {
     "Fredolay": 5.32e9,
 }
 
+# Wednesday 8/26 -- only 6 screenshots came in this batch (fewer than the
+# usual 7-8), so the damage ranking has TWO kinds of gaps: a genuine
+# mid-scroll skip (ranks 14-20, 7 members, sandwiched between confirmed
+# rank 13 at 352.41B and rank 21 at 212.78B -- they almost certainly did
+# have damage, we just don't have the numbers) and an unreached tail
+# (ranks 45-48, never scrolled to). No attack-count/donation screens
+# either. Rather than guess at either group's values, all 11 missing
+# members are left out of the dict entirely and treated as unconfirmed
+# (0, 0) attacks -- NOT assumed 0-attack or 0-damage, just unknown.
+invasion_logged_wed = {
+    "RonickForce": 6.66e12,
+    "Pimpanzee": 5.95e12,
+    "Flforever": 3.33e12,
+    "HyenA": 3.12e12,
+    "Drew2264": 2.16e12,
+    "fred21422": 1.08e12,
+    "BenZoo": 1.04e12,
+    "ScHlAnGE": 740.47e9,
+    "Papykique": 549.40e9,
+    "Altair1165": 417.23e9,
+    "Nad33m": 399.01e9,
+    "NHTPhat": 388.88e9,
+    "P107215255": 352.41e9,
+    "Atom369": 212.78e9,
+    "tEruPmA": 207.69e9,
+    "Ghost192": 179.40e9,
+    "SpudNugget18": 162.10e9,
+    "REAPS": 141.94e9,
+    "1RauMuong1": 103.20e9,
+    "Ibnt": 99.76e9,
+    "IlTeino": 92.31e9,
+    "NalaStomp": 82.73e9,
+    "zozoxo": 69.28e9,
+    "Tvojemama1": 68.54e9,
+    "Saludan": 66.73e9,
+    "Skytiti": 66.54e9,
+    "Stumbi97": 52.43e9,
+    "Rysor": 50.66e9,
+    "Swidishh": 36.85e9,
+    "choolzy": 34.36e9,
+    "Vomenjack": 29.99e9,
+    "Katitos": 25.66e9,
+    "estimov": 21.93e9,
+    "Rendaxx": 18.31e9,
+    "Jackylefeu": 12.15e9,
+    "Mightykey": 7.11e9,
+    "xavop": 6.83e9,
+    # Unconfirmed (mid-scroll gap, ranks 14-20): AnyDockers, BigRagaTheOppStopa,
+    # Fredolay, Ekkehard, Drakias, saare, Murkchoppa. Unconfirmed (unreached
+    # tail, ranks 45-48): Maskiert03, iBooneh, elementten, DKDKDKDK.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["8/24", "8/25", "8/26", "8/27", "8/28", "8/29", "8/30"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 1  # Tuesday -- the most recently tracked day
+TODAY_INDEX = 2  # Wednesday -- the most recently tracked day
 WEEK_LABEL = "wk of 8/24"
 
 # Roster carries over from last week (Papykique added as a new member seen
@@ -237,6 +289,7 @@ roster = sorted({(name, role) for name, role, _ in donation_members})
 ATTACK_LOGS = {
     0: {name: ((2, 2) if name in invasion_logged_mon else (0, 0)) for name, role in roster},
     1: {name: ((2, 2) if name in invasion_logged_tue else (0, 0)) for name, role in roster},
+    2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
 }
 
 
