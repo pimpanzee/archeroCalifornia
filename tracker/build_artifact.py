@@ -66,9 +66,8 @@ replacements = {
     "__DONATION_ROWS__": donation_rows_html,
     "__DONATION_TOTAL_FULL__": f"{donation_total:,}",
     "__DONATION_NOTE__": (
-        "New week (wk of 8/24) -- donation counts shown are still the stale 8/18 read; "
-        "no fresh donation screenshot has come in since the reset, so these numbers "
-        "likely don't reflect this week's actual counts yet."
+        "All 48 members have fresh donation counts logged as of 8/29 -- "
+        "Murkchoppa currently reads lowest at 300."
     ),
 }
 

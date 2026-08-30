@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Aug 28, 2026"
+UPDATED_DATE = "Aug 29, 2026"
 
 
 def b64(name):
@@ -315,12 +315,84 @@ invasion_logged_fri = {
     # these are NOT treated as 0-attack call-out candidates.
 }
 
+# Saturday 8/29 -- full clean read of the Guild Member Ranking list (1-44
+# of 48) AND, for the first time in several days, real Manage Member /
+# donation screens covering all 48 members. The 4 members missing from the
+# ranking (Ekkehard, Papykique, Ghost192, 1RauMuong1) exactly match the 4
+# who show 0 attacks on the Manage Member screens -- full cross-validation.
+invasion_logged_sat = {
+    "Drew2264": 5.79e12,
+    "elementten": 3.92e12,
+    "HyenA": 2.97e12,
+    "RonickForce": 2.39e12,
+    "Flforever": 1.78e12,
+    "fred21422": 1.64e12,
+    "BenZoo": 832.78e9,
+    "ScHlAnGE": 812.19e9,
+    "Pimpanzee": 756.65e9,
+    "Nad33m": 591.50e9,
+    "REAPS": 347.04e9,
+    "DKDKDKDK": 311.69e9,
+    "Drakias": 288.18e9,
+    "Murkchoppa": 255.80e9,
+    "NHTPhat": 255.14e9,
+    "IlTeino": 247.85e9,
+    "iBooneh": 232.51e9,
+    "Saludan": 224.74e9,
+    "Altair1165": 223.06e9,
+    "Stumbi97": 219.48e9,
+    "Tvojemama1": 212.64e9,
+    "Skytiti": 210.79e9,
+    "SpudNugget18": 182.32e9,
+    "P107215255": 158.69e9,
+    "saare": 147.31e9,
+    "tEruPmA": 146.82e9,
+    "BigRagaTheOppStopa": 142.94e9,
+    "NalaStomp": 125.78e9,
+    "Atom369": 92.10e9,
+    "Ibnt": 91.36e9,
+    "Rendaxx": 70.22e9,
+    "AnyDockers": 56.53e9,
+    "choolzy": 43.82e9,
+    "Jackylefeu": 38.69e9,
+    "Katitos": 30.58e9,
+    "Maskiert03": 30.02e9,
+    "Rysor": 21.62e9,
+    "Vomenjack": 11.95e9,
+    "Swidishh": 6.54e9,
+    "zozoxo": 6.13e9,
+    "estimov": 5.45e9,
+    "xavop": 4.88e9,
+    "Mightykey": 4.86e9,
+    "Fredolay": 3.86e9,
+    # Not visible in the ranking (Ekkehard, Papykique, Ghost192, 1RauMuong1)
+    # -- confirmed 0 attacks for the day (see ATTACKS_SAT).
+}
+
+# Attack count (out of a max of 2/day) for Saturday 8/29, read off the red
+# skull icon on the Manage Member / donation screens -- real data for all
+# 48 members, first full attack-screen batch since 8/21.
+ATTACKS_SAT = {
+    "Maskiert03": 2, "zozoxo": 2, "Flforever": 2, "ScHlAnGE": 2,
+    "Vomenjack": 2, "Swidishh": 2, "Katitos": 2, "Jackylefeu": 2,
+    "Mightykey": 2, "Nad33m": 2, "Ekkehard": 0, "Altair1165": 2,
+    "REAPS": 2, "Stumbi97": 2, "NalaStomp": 2, "fred21422": 2, "Rysor": 2,
+    "IlTeino": 2, "Tvojemama1": 2, "Papykique": 0, "Saludan": 2,
+    "AnyDockers": 2, "estimov": 2, "Rendaxx": 2, "P107215255": 2,
+    "Fredolay": 1, "xavop": 1, "BenZoo": 2, "BigRagaTheOppStopa": 2,
+    "Ibnt": 2, "choolzy": 2, "tEruPmA": 2, "Skytiti": 2, "Atom369": 2,
+    "RonickForce": 2, "Drew2264": 2, "saare": 2, "DKDKDKDK": 2, "HyenA": 2,
+    "iBooneh": 2, "Murkchoppa": 2, "Pimpanzee": 2, "elementten": 2,
+    "SpudNugget18": 2, "NHTPhat": 2, "Drakias": 2, "Ghost192": 0,
+    "1RauMuong1": 0,
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["8/24", "8/25", "8/26", "8/27", "8/28", "8/29", "8/30"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri, 5: invasion_logged_sat}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 4  # Friday -- the most recently tracked day
+TODAY_INDEX = 5  # Saturday -- the most recently tracked day
 WEEK_LABEL = "wk of 8/24"
 
 # Roster carries over from last week (Papykique added as a new member seen
@@ -328,54 +400,54 @@ WEEK_LABEL = "wk of 8/24"
 # values are the stale 8/18 read carried forward again -- no fresh donation
 # screenshot has come in since (see note above invasion_logged_mon).
 donation_members = [
-    ("Rysor", "Guild Member", 1600),
-    ("Swidishh", "Guild Member", 1600),
-    ("Skytiti", "Guild Member", 960),
-    ("Maskiert03", "Guild Member", 670),
-    ("Saludan", "Guild Member", 1180),
-    ("xavop", "Guild Member", 1020),
-    ("Flforever", "Guild Member", 1560),
-    ("REAPS", "Guild Member", 1420),
-    ("zozoxo", "Guild Member", 1480),
-    ("choolzy", "Guild Member", 1600),
-    ("P107215255", "Guild Member", 1420),
-    ("IlTeino", "Guild Member", 1340),
-    ("AnyDockers", "Guild Member", 1600),
-    ("Atom369", "Guild Member", 120),
-    ("Katitos", "Guild Member", 1520),
-    ("Mightykey", "Guild Member", 1280),
-    ("BigRagaTheOppStopa", "Guild Member", 1600),
-    ("Fredolay", "Guild Member", 670),
-    ("Altair1165", "Guild Member", 1090),
-    ("Nad33m", "Guild Member", 1000),
-    ("Tvojemama1", "Guild Member", 1200),
-    ("tEruPmA", "Guild Member", 1370),
-    ("Stumbi97", "Guild Member", 1480),
-    ("NalaStomp", "Guild Member", 1360),
-    ("Rendaxx", "Guild Member", 1600),
-    ("ScHlAnGE", "Guild Member", 960),
-    ("Ghost192", "Guild Member", 1120),
-    ("estimov", "Guild Member", 1600),
-    ("Vomenjack", "Guild Member", 600),
-    ("NHTPhat", "Guild Member", 1000),
-    ("SpudNugget18", "Guild Member", 1000),
-    ("Ibnt", "Guild Member", 1080),
-    ("fred21422", "Guild Member", 1600),
-    ("Ekkehard", "Guild Member", 1600),
-    ("Drakias", "Guild Member", 1400),
-    ("BenZoo", "Elder", 1600),
-    ("HyenA", "Elder", 1600),
-    ("saare", "Elder", 1520),
-    ("Murkchoppa", "Elder", 0),
-    ("iBooneh", "Elder", 1130),
-    ("Jackylefeu", "Guild Member", 740),
-    ("Pimpanzee", "Leader", 1600),
-    ("Drew2264", "Vice Leader", 1520),
-    ("RonickForce", "Vice Leader", 1600),
-    ("1RauMuong1", "Vice Leader", 1100),
-    ("elementten", "Vice Leader", 1600),
-    ("DKDKDKDK", "Elder", 800),
-    ("Papykique", "Guild Member", 0),
+    ("Rysor", "Guild Member", 3640),
+    ("Swidishh", "Guild Member", 4090),
+    ("Skytiti", "Guild Member", 2960),
+    ("Maskiert03", "Guild Member", 3880),
+    ("Saludan", "Guild Member", 2110),
+    ("xavop", "Guild Member", 3200),
+    ("Flforever", "Guild Member", 4170),
+    ("REAPS", "Guild Member", 4000),
+    ("zozoxo", "Guild Member", 3060),
+    ("choolzy", "Guild Member", 3920),
+    ("P107215255", "Guild Member", 4160),
+    ("IlTeino", "Guild Member", 4420),
+    ("AnyDockers", "Guild Member", 4390),
+    ("Atom369", "Guild Member", 1540),
+    ("Katitos", "Guild Member", 3630),
+    ("Mightykey", "Guild Member", 3190),
+    ("BigRagaTheOppStopa", "Guild Member", 3830),
+    ("Fredolay", "Guild Member", 1500),
+    ("Altair1165", "Guild Member", 3180),
+    ("Nad33m", "Guild Member", 2830),
+    ("Tvojemama1", "Guild Member", 2660),
+    ("tEruPmA", "Guild Member", 3960),
+    ("Stumbi97", "Guild Member", 4010),
+    ("NalaStomp", "Guild Member", 4320),
+    ("Rendaxx", "Guild Member", 4500),
+    ("ScHlAnGE", "Guild Member", 1980),
+    ("Ghost192", "Guild Member", 3250),
+    ("estimov", "Guild Member", 4600),
+    ("Vomenjack", "Guild Member", 1750),
+    ("NHTPhat", "Guild Member", 2950),
+    ("SpudNugget18", "Guild Member", 2920),
+    ("Ibnt", "Guild Member", 3470),
+    ("fred21422", "Guild Member", 4650),
+    ("Ekkehard", "Guild Member", 3490),
+    ("Drakias", "Guild Member", 4200),
+    ("BenZoo", "Elder", 3750),
+    ("HyenA", "Elder", 4310),
+    ("saare", "Elder", 4530),
+    ("Murkchoppa", "Elder", 300),
+    ("iBooneh", "Elder", 2180),
+    ("Jackylefeu", "Guild Member", 4070),
+    ("Pimpanzee", "Leader", 4800),
+    ("Drew2264", "Vice Leader", 4370),
+    ("RonickForce", "Vice Leader", 4800),
+    ("1RauMuong1", "Vice Leader", 3650),
+    ("elementten", "Vice Leader", 4310),
+    ("DKDKDKDK", "Elder", 2170),
+    ("Papykique", "Guild Member", 4420),
 ]
 donation_members.sort(key=lambda m: m[2], reverse=True)
 
@@ -393,6 +465,7 @@ ATTACK_LOGS = {
     2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
     3: {name: ((2, 2) if name in invasion_logged_thu else (0, 0)) for name, role in roster},
     4: {name: ((2, 2) if name in invasion_logged_fri else (0, 0)) for name, role in roster},
+    5: {name: (ATTACKS_SAT.get(name, 0), 2) for name, role in roster},
 }
 
 
