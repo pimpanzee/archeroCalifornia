@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Aug 31, 2026"
+UPDATED_DATE = "Sep 1, 2026"
 
 
 def b64(name):
@@ -99,12 +99,68 @@ invasion_logged_mon = {
     # candidates.
 }
 
+# Tuesday 9/1 -- damage ranking (1-45 of 48) read off the scrollable Guild
+# Member Ranking list; the unreached tail (ranks 46-48: DKDKDKDK, Vomenjack,
+# Fredolay) was never scrolled to. No Manage Member/attack-count screens in
+# this batch either, so those 3 are treated as unconfirmed (0, 0), not
+# 0-attack. Donation values still carried forward from 8/30.
+invasion_logged_tue = {
+    "Pimpanzee": 6.87e12,
+    "HyenA": 4.68e12,
+    "Drew2264": 1.73e12,
+    "BenZoo": 1.60e12,
+    "REAPS": 941.92e9,
+    "RonickForce": 925.25e9,
+    "Tvojemama1": 821.35e9,
+    "iBooneh": 728.37e9,
+    "elementten": 713.90e9,
+    "Papykique": 620.73e9,
+    "Saludan": 598.48e9,
+    "Flforever": 583.79e9,
+    "fred21422": 574.68e9,
+    "ScHlAnGE": 541.08e9,
+    "IlTeino": 519.65e9,
+    "P107215255": 461.43e9,
+    "AnyDockers": 445.07e9,
+    "NHTPhat": 432.00e9,
+    "Ekkehard": 358.83e9,
+    "NalaStomp": 297.50e9,
+    "Drakias": 293.38e9,
+    "Altair1165": 277.30e9,
+    "Ghost192": 275.73e9,
+    "SpudNugget18": 246.35e9,
+    "BigRagaTheOppStopa": 244.81e9,
+    "Skytiti": 233.03e9,
+    "saare": 189.92e9,
+    "zozoxo": 173.59e9,
+    "tEruPmA": 170.78e9,
+    "Jackylefeu": 142.31e9,
+    "choolzy": 126.03e9,
+    "Murkchoppa": 122.86e9,
+    "Rysor": 121.34e9,
+    "Ibnt": 116.74e9,
+    "Katitos": 114.33e9,
+    "Stumbi97": 104.36e9,
+    "Atom369": 98.94e9,
+    "Rendaxx": 84.31e9,
+    "1RauMuong1": 75.46e9,
+    "Maskiert03": 65.68e9,
+    "Nad33m": 42.93e9,
+    "estimov": 36.08e9,
+    "Swidishh": 35.87e9,
+    "xavop": 17.40e9,
+    "Mightykey": 15.49e9,
+    # Not visible in the scrolled ranking (DKDKDKDK, Vomenjack, Fredolay) --
+    # unreached tail, no attack-count screen to confirm either way, so these
+    # are NOT treated as 0-attack call-out candidates.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["8/31", "9/1", "9/2", "9/3", "9/4", "9/5", "9/6"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 0  # Monday -- the most recently tracked day, opens wk of 8/31
+TODAY_INDEX = 1  # Tuesday -- the most recently tracked day
 WEEK_LABEL = "wk of 8/31"
 
 # Roster unchanged. Donation values carried forward unchanged from the 8/30
@@ -171,6 +227,7 @@ roster = sorted({(name, role) for name, role, _ in donation_members})
 # unconfirmed 0/0 (not penalized).
 ATTACK_LOGS = {
     0: {name: ((2, 2) if name in invasion_logged_mon else (0, 0)) for name, role in roster},
+    1: {name: ((2, 2) if name in invasion_logged_tue else (0, 0)) for name, role in roster},
 }
 
 
