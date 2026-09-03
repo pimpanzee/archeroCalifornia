@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Sep 1, 2026"
+UPDATED_DATE = "Sep 2, 2026"
 
 
 def b64(name):
@@ -155,12 +155,65 @@ invasion_logged_tue = {
     # are NOT treated as 0-attack call-out candidates.
 }
 
+# Wednesday 9/2 -- damage ranking (ranks 1-39 of 48, minus a 1-rank gap at
+# 27) read off the scrollable Guild Member Ranking list. HyenA's 8.38T is
+# the highest single-day #1 recorded all season (previous high was
+# Pimpanzee's 6.87T on 9/1). Per standing guidance as of 9/2: the ranking
+# screenshots themselves are enough to call out non-attackers -- a separate
+# Manage Member/donation screen is no longer required to confirm 0 attacks.
+# The 10 members missing from this ranking (choolzy, Atom369, Mightykey,
+# Fredolay, Nad33m, Tvojemama1, Ghost192, Vomenjack, Murkchoppa, DKDKDKDK)
+# are treated as confirmed 0-attack call-out candidates.
+invasion_logged_wed = {
+    "HyenA": 8.38e12,
+    "Flforever": 6.22e12,
+    "Pimpanzee": 5.27e12,
+    "Drew2264": 3.62e12,
+    "elementten": 3.58e12,
+    "fred21422": 2.91e12,
+    "RonickForce": 1.73e12,
+    "BenZoo": 1.44e12,
+    "NHTPhat": 1.19e12,
+    "REAPS": 762.96e9,
+    "Ekkehard": 654.42e9,
+    "Papykique": 611.28e9,
+    "1RauMuong1": 563.28e9,
+    "P107215255": 517.42e9,
+    "Drakias": 440.21e9,
+    "Stumbi97": 390.76e9,
+    "Altair1165": 352.52e9,
+    "iBooneh": 295.28e9,
+    "BigRagaTheOppStopa": 285.12e9,
+    "ScHlAnGE": 271.69e9,
+    "SpudNugget18": 241.60e9,
+    "AnyDockers": 240.50e9,
+    "Ibnt": 207.91e9,
+    "tEruPmA": 167.68e9,
+    "saare": 124.80e9,
+    "Rysor": 108.52e9,
+    "Rendaxx": 106.57e9,
+    "IlTeino": 86.40e9,
+    "NalaStomp": 66.20e9,
+    "xavop": 55.99e9,
+    "Saludan": 52.98e9,
+    "Skytiti": 41.07e9,
+    "Jackylefeu": 38.16e9,
+    "estimov": 29.93e9,
+    "Swidishh": 19.83e9,
+    "Katitos": 19.56e9,
+    "zozoxo": 13.57e9,
+    "Maskiert03": 9.47e9,
+    # Not visible in the ranking (choolzy, Atom369, Mightykey, Fredolay,
+    # Nad33m, Tvojemama1, Ghost192, Vomenjack, Murkchoppa, DKDKDKDK) --
+    # confirmed 0-attack call-out candidates per updated guidance.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["8/31", "9/1", "9/2", "9/3", "9/4", "9/5", "9/6"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 1  # Tuesday -- the most recently tracked day
+TODAY_INDEX = 2  # Wednesday -- the most recently tracked day
 WEEK_LABEL = "wk of 8/31"
 
 # Roster unchanged. Donation values carried forward unchanged from the 8/30
@@ -221,13 +274,14 @@ donation_members.sort(key=lambda m: m[2], reverse=True)
 # only screenshot set that covered every member.
 roster = sorted({(name, role) for name, role, _ in donation_members})
 
-# Attack counts as (attacks, max) pairs per tracked day. No attack-count
-# screen this week yet, so backfilled the same way as recent no-screenshot
-# days: presence in the ranking treated as a confirmed 2/2, absence as an
-# unconfirmed 0/0 (not penalized).
+# Attack counts as (attacks, max) pairs per tracked day. Mon/Tue predate the
+# 9/2 policy update (ranking absence alone treated as unconfirmed, not
+# call-out eligible); Wed 9/2 onward, ranking absence is a confirmed 0/2 --
+# no separate Manage Member screen required.
 ATTACK_LOGS = {
     0: {name: ((2, 2) if name in invasion_logged_mon else (0, 0)) for name, role in roster},
     1: {name: ((2, 2) if name in invasion_logged_tue else (0, 0)) for name, role in roster},
+    2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
 }
 
 
