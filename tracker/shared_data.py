@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Sep 2, 2026"
+UPDATED_DATE = "Sep 3, 2026"
 
 
 def b64(name):
@@ -208,12 +208,66 @@ invasion_logged_wed = {
     # confirmed 0-attack call-out candidates per updated guidance.
 }
 
+# Thursday 9/3 -- clean read: damage ranking (1-44 of 48), only the
+# unreached tail (ranks 45-48) missing. The 4 members missing (DKDKDKDK,
+# Vomenjack, Murkchoppa, Fredolay) are confirmed 0-attack call-out
+# candidates per the 9/2 policy update.
+invasion_logged_thu = {
+    "Pimpanzee": 7.49e12,
+    "HyenA": 4.99e12,
+    "Drew2264": 3.87e12,
+    "RonickForce": 3.72e12,
+    "elementten": 2.79e12,
+    "Flforever": 2.37e12,
+    "BenZoo": 1.74e12,
+    "fred21422": 1.55e12,
+    "P107215255": 1.11e12,
+    "NHTPhat": 1.02e12,
+    "Papykique": 909.06e9,
+    "Tvojemama1": 865.72e9,
+    "Nad33m": 735.28e9,
+    "1RauMuong1": 732.49e9,
+    "Altair1165": 692.65e9,
+    "Ekkehard": 663.82e9,
+    "Saludan": 482.86e9,
+    "Ghost192": 426.66e9,
+    "Drakias": 390.31e9,
+    "SpudNugget18": 370.54e9,
+    "tEruPmA": 360.80e9,
+    "iBooneh": 356.75e9,
+    "BigRagaTheOppStopa": 310.61e9,
+    "IlTeino": 305.98e9,
+    "AnyDockers": 286.16e9,
+    "Stumbi97": 275.58e9,
+    "Rysor": 212.72e9,
+    "NalaStomp": 189.03e9,
+    "Jackylefeu": 160.58e9,
+    "Ibnt": 124.52e9,
+    "Swidishh": 119.37e9,
+    "Katitos": 114.80e9,
+    "saare": 99.56e9,
+    "zozoxo": 94.79e9,
+    "ScHlAnGE": 89.53e9,
+    "choolzy": 69.45e9,
+    "estimov": 63.52e9,
+    "Maskiert03": 61.65e9,
+    "Rendaxx": 59.01e9,
+    "Skytiti": 35.01e9,
+    "REAPS": 28.77e9,
+    "Atom369": 27.85e9,
+    "xavop": 18.30e9,
+    "Mightykey": 10.01e9,
+    # Not visible in the ranking (DKDKDKDK, Vomenjack, Murkchoppa, Fredolay)
+    # -- unreached tail (ranks 45-48), confirmed 0-attack call-out
+    # candidates per the 9/2 policy update.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["8/31", "9/1", "9/2", "9/3", "9/4", "9/5", "9/6"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 2  # Wednesday -- the most recently tracked day
+TODAY_INDEX = 3  # Thursday -- the most recently tracked day
 WEEK_LABEL = "wk of 8/31"
 
 # Roster unchanged. Donation values carried forward unchanged from the 8/30
@@ -282,6 +336,7 @@ ATTACK_LOGS = {
     0: {name: ((2, 2) if name in invasion_logged_mon else (0, 0)) for name, role in roster},
     1: {name: ((2, 2) if name in invasion_logged_tue else (0, 0)) for name, role in roster},
     2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
+    3: {name: ((2, 2) if name in invasion_logged_thu else (0, 0)) for name, role in roster},
 }
 
 
