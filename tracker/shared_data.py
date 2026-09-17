@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Sep 15, 2026"
+UPDATED_DATE = "Sep 16, 2026"
 
 
 def b64(name):
@@ -148,17 +148,73 @@ invasion_logged_tue = {
     # confirmed 0-attack call-out candidates per the 9/2 policy.
 }
 
+# Wednesday 9/16 -- damage ranking (1-38 of 47) read off the scrollable
+# Guild Member Ranking list, tail unreached (only 6 screenshots this
+# batch, no Manage Member screen). New member spotted: Depfefferle336
+# (rank 38, 1.63B) -- added to the roster below with donation unknown
+# (defaulted to 0) pending a Manage Member screenshot. No one else left,
+# so the guild is now 47/48. elementten tops the day at a new season-high
+# 9.63T (previous high was HyenA's 9.45T on 9/10). The 9 members missing
+# from the ranking (Katitos, Papykique, Tvojemama1, xavop, Ghost192,
+# IlTeino, Mightykey, 1RauMuong1, Murkchoppa) are confirmed 0-attack
+# call-out candidates per the 9/2 policy.
+invasion_logged_wed = {
+    "elementten": 9.63e12,
+    "Flforever": 6.81e12,
+    "HyenA": 6.50e12,
+    "Pimpanzee": 4.99e12,
+    "fred21422": 3.77e12,
+    "Drew2264": 2.52e12,
+    "REAPS": 2.09e12,
+    "EpicMarksman": 1.46e12,
+    "P107215255": 1.02e12,
+    "ScHlAnGE": 942.97e9,
+    "iBooneh": 771.03e9,
+    "BenZoo": 680.89e9,
+    "Nad33m": 554.84e9,
+    "RonickForce": 401.90e9,
+    "Ekkehard": 383.28e9,
+    "Drakias": 334.05e9,
+    "Stumbi97": 312.35e9,
+    "Jackylefeu": 307.05e9,
+    "BigRagaTheOppStopa": 221.31e9,
+    "saare": 195.61e9,
+    "Altair1165": 156.24e9,
+    "Rendaxx": 135.46e9,
+    "Skytiti": 134.85e9,
+    "Saludan": 118.54e9,
+    "Rysor": 110.16e9,
+    "Ibnt": 107.34e9,
+    "AnyDockers": 78.93e9,
+    "tEruPmA": 66.66e9,
+    "choolzy": 61.01e9,
+    "NalaStomp": 52.00e9,
+    "Atom369": 44.35e9,
+    "Maskiert03": 35.91e9,
+    "Ghoro": 13.94e9,
+    "estimov": 6.72e9,
+    "Swidishh": 6.02e9,
+    "zozoxo": 4.73e9,
+    "Fredolay": 3.98e9,
+    "Depfefferle336": 1.63e9,
+    # Not visible in the ranking (Katitos, Papykique, Tvojemama1, xavop,
+    # Ghost192, IlTeino, Mightykey, 1RauMuong1, Murkchoppa) -- unreached
+    # tail, confirmed 0-attack call-out candidates per the 9/2 policy.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["9/14", "9/15", "9/16", "9/17", "9/18", "9/19", "9/20"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 1  # Tuesday -- the most recently tracked day
+TODAY_INDEX = 2  # Wednesday -- the most recently tracked day
 WEEK_LABEL = "wk of 9/14"
 
-# Roster unchanged. Donation values still carried forward from the 9/8
-# read -- no Manage Member screenshot has come in since.
+# Roster update as of 9/16: Depfefferle336 is new (Guild Member, donation
+# unknown pending a Manage Member screenshot). Everyone else's donation
+# values still carried forward from the 9/8 read.
 donation_members = [
+    ("Depfefferle336", "Guild Member", 0),
     ("choolzy", "Guild Member", 1390),
     ("Ekkehard", "Guild Member", 1170),
     ("NalaStomp", "Guild Member", 620),
@@ -216,6 +272,7 @@ roster = sorted({(name, role) for name, role, _ in donation_members})
 ATTACK_LOGS = {
     0: {name: ((2, 2) if name in invasion_logged_mon else (0, 0)) for name, role in roster},
     1: {name: ((2, 2) if name in invasion_logged_tue else (0, 0)) for name, role in roster},
+    2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
 }
 
 
