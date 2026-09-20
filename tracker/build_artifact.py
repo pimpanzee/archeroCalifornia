@@ -67,8 +67,8 @@ replacements = {
     "__DONATION_TOTAL_FULL__": f"{donation_total:,}",
     "__DONATION_NOTE__": (
         "Donation counts still the 9/8 read for existing members -- "
-        "Depfefferle336 (new as of 9/16) has an unknown/unconfirmed count "
-        "pending a Manage Member screenshot."
+        "Depfefferle336 (new 9/16) and lllmundlll (new 9/19) have "
+        "unknown/unconfirmed counts pending a Manage Member screenshot."
     ),
 }
 

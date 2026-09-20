@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Sep 18, 2026"
+UPDATED_DATE = "Sep 19, 2026"
 
 
 def b64(name):
@@ -308,18 +308,77 @@ invasion_logged_fri = {
     # 9/2 policy.
 }
 
+# Saturday 9/19 -- full clean continuity read: damage ranking (1-46 of
+# 48, ranks unbroken from 1 straight through). New member spotted:
+# lllmundlll (rank 23, 232.37B) -- added to the roster below with
+# donation unknown pending a Manage Member screenshot. No one left, so
+# the guild is now 48/48 (full). Only 2 members missing from the ranking
+# (Katitos, Ghost192) -- confirmed 0-attack call-out candidates per the
+# 9/2 policy.
+invasion_logged_sat = {
+    "Pimpanzee": 8.48e12,
+    "Drew2264": 5.85e12,
+    "Flforever": 5.35e12,
+    "elementten": 5.30e12,
+    "EpicMarksman": 4.43e12,
+    "RonickForce": 2.50e12,
+    "HyenA": 2.28e12,
+    "P107215255": 2.11e12,
+    "BenZoo": 1.74e12,
+    "fred21422": 1.67e12,
+    "Papykique": 1.18e12,
+    "Tvojemama1": 776.45e9,
+    "AnyDockers": 594.99e9,
+    "iBooneh": 518.89e9,
+    "Ekkehard": 466.37e9,
+    "Atom369": 459.54e9,
+    "Altair1165": 386.30e9,
+    "Ibnt": 364.51e9,
+    "Drakias": 338.47e9,
+    "ScHlAnGE": 314.03e9,
+    "Ghoro": 251.91e9,
+    "Skytiti": 238.37e9,
+    "lllmundlll": 232.37e9,
+    "Maskiert03": 212.02e9,
+    "Rysor": 191.98e9,
+    "NalaStomp": 176.40e9,
+    "tEruPmA": 170.12e9,
+    "BigRagaTheOppStopa": 158.21e9,
+    "Nad33m": 131.84e9,
+    "choolzy": 122.85e9,
+    "IlTeino": 109.65e9,
+    "Fredolay": 104.92e9,
+    "Murkchoppa": 80.38e9,
+    "Jackylefeu": 79.92e9,
+    "estimov": 50.08e9,
+    "Swidishh": 43.77e9,
+    "Stumbi97": 43.25e9,
+    "Saludan": 39.31e9,
+    "zozoxo": 32.04e9,
+    "REAPS": 27.24e9,
+    "Mightykey": 19.90e9,
+    "saare": 15.11e9,
+    "Rendaxx": 14.91e9,
+    "1RauMuong1": 14.54e9,
+    "xavop": 6.33e9,
+    "Depfefferle336": 5.62e9,
+    # Not visible in the ranking (Katitos, Ghost192) -- confirmed
+    # 0-attack call-out candidates per the 9/2 policy.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["9/14", "9/15", "9/16", "9/17", "9/18", "9/19", "9/20"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri, 5: invasion_logged_sat}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 4  # Friday -- the most recently tracked day
+TODAY_INDEX = 5  # Saturday -- the most recently tracked day
 WEEK_LABEL = "wk of 9/14"
 
-# Roster update as of 9/16: Depfefferle336 is new (Guild Member, donation
-# unknown pending a Manage Member screenshot). Everyone else's donation
-# values still carried forward from the 9/8 read.
+# Roster update as of 9/19: lllmundlll is new (Guild Member, donation
+# unknown pending a Manage Member screenshot) -- guild is now 48/48.
+# Everyone else's donation values still carried forward from the 9/8 read.
 donation_members = [
+    ("lllmundlll", "Guild Member", 0),
     ("Depfefferle336", "Guild Member", 0),
     ("choolzy", "Guild Member", 1390),
     ("Ekkehard", "Guild Member", 1170),
@@ -381,6 +440,7 @@ ATTACK_LOGS = {
     2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
     3: {name: ((2, 2) if name in invasion_logged_thu else (0, 0)) for name, role in roster},
     4: {name: ((2, 2) if name in invasion_logged_fri else (0, 0)) for name, role in roster},
+    5: {name: ((2, 2) if name in invasion_logged_sat else (0, 0)) for name, role in roster},
 }
 
 
