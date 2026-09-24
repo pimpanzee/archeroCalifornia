@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Sep 22, 2026"
+UPDATED_DATE = "Sep 23, 2026"
 
 
 def b64(name):
@@ -151,12 +151,66 @@ invasion_logged_tue = {
     # per the 9/2 policy.
 }
 
+# Wednesday 9/23 -- damage ranking (1-40 of 47) read off the scrollable
+# Guild Member Ranking list, tail (ranks 41-47) unreached (only 7
+# screenshots this batch, no Manage Member screen). Donation values still
+# carried forward from 9/20. The 7 members missing from the ranking
+# (AnyDockers, Maskiert03, Papykique, Murkchoppa, lllmundlll, Mightykey,
+# Depfefferle336) are confirmed 0-attack call-out candidates per the 9/2
+# policy.
+invasion_logged_wed = {
+    "EpicMarksman": 7.25e12,
+    "HyenA": 6.39e12,
+    "RonickForce": 6.31e12,
+    "Drew2264": 5.51e12,
+    "Pimpanzee": 5.41e12,
+    "elementten": 5.03e12,
+    "Flforever": 4.70e12,
+    "fred21422": 3.61e12,
+    "BenZoo": 3.00e12,
+    "P107215255": 1.82e12,
+    "NalaStomp": 1.50e12,
+    "iBooneh": 1.31e12,
+    "1RauMuong1": 1.21e12,
+    "ScHlAnGE": 1.18e12,
+    "Tvojemama1": 832.41e9,
+    "Ibnt": 580.37e9,
+    "Ekkehard": 546.11e9,
+    "BigRagaTheOppStopa": 412.11e9,
+    "Drakias": 397.87e9,
+    "saare": 378.86e9,
+    "Saludan": 323.57e9,
+    "choolzy": 321.21e9,
+    "Rysor": 239.14e9,
+    "REAPS": 142.71e9,
+    "zozoxo": 136.88e9,
+    "Rendaxx": 124.66e9,
+    "Ghoro": 123.13e9,
+    "Stumbi97": 110.28e9,
+    "IlTeino": 85.96e9,
+    "Jackylefeu": 81.94e9,
+    "Altair1165": 72.94e9,
+    "Skytiti": 55.29e9,
+    "Ghost192": 52.11e9,
+    "tEruPmA": 37.79e9,
+    "Nad33m": 31.54e9,
+    "Atom369": 27.61e9,
+    "xavop": 25.54e9,
+    "estimov": 23.09e9,
+    "Swidishh": 9.24e9,
+    "Fredolay": 6.70e9,
+    # Not visible in the ranking (AnyDockers, Maskiert03, Papykique,
+    # Murkchoppa, lllmundlll, Mightykey, Depfefferle336) -- unreached tail
+    # (ranks 41-47), confirmed 0-attack call-out candidates per the 9/2
+    # policy.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["9/21", "9/22", "9/23", "9/24", "9/25", "9/26", "9/27"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 1  # Tuesday -- the most recently tracked day
+TODAY_INDEX = 2  # Wednesday -- the most recently tracked day
 WEEK_LABEL = "wk of 9/21"
 
 # Roster unchanged. Donation values still carried forward from the 9/20
@@ -220,6 +274,7 @@ roster = sorted({(name, role) for name, role, _ in donation_members})
 ATTACK_LOGS = {
     0: {name: ((2, 2) if name in invasion_logged_mon else (0, 0)) for name, role in roster},
     1: {name: ((2, 2) if name in invasion_logged_tue else (0, 0)) for name, role in roster},
+    2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
 }
 
 
