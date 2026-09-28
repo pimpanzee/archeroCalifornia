@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Sep 26, 2026"
+UPDATED_DATE = "Sep 27, 2026"
 
 
 def b64(name):
@@ -367,12 +367,59 @@ invasion_logged_sat = {
     # confirmed 0-attack call-out candidates per the 9/2 policy.
 }
 
+invasion_logged_sun = {
+    "elementten": 4.68e12,
+    "HyenA": 4.55e12,
+    "Pimpanzee": 4.36e12,
+    "Drew2264": 3.04e12,
+    "BenZoo": 1.36e12,
+    "RonickForce": 1.22e12,
+    "fred21422": 1.05e12,
+    "Flforever": 817.33e9,
+    "NalaStomp": 436.12e9,
+    "Tvojemama1": 384.63e9,
+    "P107215255": 364.99e9,
+    "EpicMarksman": 364.06e9,
+    "saare": 304.15e9,
+    "Saludan": 258.26e9,
+    "iBooneh": 170.70e9,
+    "Atom369": 164.12e9,
+    "Ibnt": 157.75e9,
+    "ScHlAnGE": 138.55e9,
+    "choolzy": 124.69e9,
+    "REAPS": 104.04e9,
+    "Papykique": 104.02e9,
+    "Maskiert03": 94.95e9,
+    "Stumbi97": 90.06e9,
+    "Nad33m": 84.95e9,
+    "estimov": 77.03e9,
+    "Altair1165": 68.98e9,
+    "Drakias": 66.20e9,
+    "Rysor": 56.68e9,
+    "Ghoro": 47.35e9,
+    "IlTeino": 38.53e9,
+    "tEruPmA": 29.89e9,
+    "lllmundlll": 25.87e9,
+    "zozoxo": 21.52e9,
+    "Rendaxx": 19.00e9,
+    "1RauMuong1": 17.57e9,
+    "xavop": 17.07e9,
+    "Skytiti": 15.53e9,
+    "Swidishh": 9.21e9,
+    # Not visible in the ranking (Depfefferle336, Ekkehard, Fredolay,
+    # Jackylefeu, AnyDockers, Ghost192, BigRagaTheOppStopa, Mightykey,
+    # Murkchoppa) -- ranking list ended cleanly at rank 38 (Swidishh)
+    # right above the pinned own-rank footer, so this is the true end of
+    # the list, not a mid-scroll gap. Confirmed 0-attack call-out
+    # candidates per the 9/2 policy.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["9/21", "9/22", "9/23", "9/24", "9/25", "9/26", "9/27"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri, 5: invasion_logged_sat}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri, 5: invasion_logged_sat, 6: invasion_logged_sun}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 5  # Saturday -- the most recently tracked day
+TODAY_INDEX = 6  # Sunday -- the most recently tracked day
 WEEK_LABEL = "wk of 9/21"
 
 # Roster unchanged. Donation values still carried forward from the 9/20
@@ -440,6 +487,7 @@ ATTACK_LOGS = {
     3: {name: ((2, 2) if name in invasion_logged_thu else (0, 0)) for name, role in roster},
     4: {name: ((2, 2) if name in invasion_logged_fri else (0, 0)) for name, role in roster},
     5: {name: ((2, 2) if name in invasion_logged_sat else (0, 0)) for name, role in roster},
+    6: {name: ((2, 2) if name in invasion_logged_sun else (0, 0)) for name, role in roster},
 }
 
 
