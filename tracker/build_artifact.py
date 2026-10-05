@@ -66,10 +66,8 @@ replacements = {
     "__DONATION_ROWS__": donation_rows_html,
     "__DONATION_TOTAL_FULL__": f"{donation_total:,}",
     "__DONATION_NOTE__": (
-        "47 of 48 current members have donation counts logged as of 9/20 "
-        "-- Murkchoppa currently reads lowest at 0. New member CzosneK "
-        "(joined 9/28) has no donation reading yet, pending a Manage "
-        "Member screenshot."
+        "All 48 current members have fresh donation counts logged as of "
+        "10/4 -- Mightykey currently reads lowest at 260."
     ),
 }
 
