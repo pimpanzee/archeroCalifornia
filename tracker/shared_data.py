@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Oct 16, 2026"
+UPDATED_DATE = "Oct 17, 2026"
 
 
 def b64(name):
@@ -334,12 +334,72 @@ invasion_logged_fri = {
     # candidates per the 9/2 policy.
 }
 
+# Saturday 10/17 -- damage ranking (1-25, 27-38 of 48) read off the
+# scrollable Guild Member Ranking list; 7 screenshots this batch, no
+# Manage Member screen, so donation values are still carried forward
+# from the 10/4 full refresh (now 13 days stale). No roster changes. The
+# list ends cleanly at rank 38 (Fredolay) right above the pinned
+# own-rank footer, confirming a true end of list -- but rank 26 itself
+# was never captured (a genuine mid-scroll gap between Rendaxx at #25 and
+# REAPS at #27, this batch's one screenshot seam). 11 members are absent
+# from the 37 damage values actually read: choolzy, Ekkehard, NalaStomp,
+# Papykique, P107215255, Saludan, IlTeino, Swidishh, Mightykey, Ghoro,
+# Murkchoppa. One of these 11 almost certainly sits at the unphotographed
+# rank 26 (damage roughly between Rendaxx's 149.40B and REAPS's 143.91B)
+# and so is NOT actually a 0-attack case -- which one can't be
+# determined from the screenshots, so none of the 11 is being called out
+# as a confirmed 0-attack candidate today pending tomorrow's data.
+invasion_logged_sat = {
+    "Pimpanzee": 7.34e12,
+    "Flforever": 6.46e12,
+    "EpicMarksman": 6.19e12,
+    "fred21422": 5.37e12,
+    "elementten": 3.91e12,
+    "Drew2264": 3.51e12,
+    "RonickForce": 2.96e12,
+    "BenZoo": 1.77e12,
+    "HyenA": 1.62e12,
+    "Ibnt": 818.85e9,
+    "Drakias": 784.94e9,
+    "Atom369": 594.24e9,
+    "iBooneh": 559.26e9,
+    "ScHlAnGE": 510.47e9,
+    "Rysor": 490.95e9,
+    "Stumbi97": 474.35e9,
+    "CzosneK": 309.86e9,
+    "Ghost192": 298.29e9,
+    "BigRagaTheOppStopa": 279.77e9,
+    "estimov": 227.34e9,
+    "Jackylefeu": 220.96e9,
+    "AnyDockers": 184.15e9,
+    "tEruPmA": 180.68e9,
+    "zozoxo": 155.37e9,
+    "Rendaxx": 149.40e9,
+    "REAPS": 143.91e9,
+    "lllmundlll": 123.05e9,
+    "Tvojemama1": 113.21e9,
+    "saare": 104.99e9,
+    "Maskiert03": 81.70e9,
+    "Altair1165": 65.47e9,
+    "1RauMuong1": 52.53e9,
+    "xavop": 46.16e9,
+    "Skytiti": 44.44e9,
+    "Nad33m": 36.42e9,
+    "Depfefferle336": 30.51e9,
+    "Fredolay": 2.82e9,
+    # Rank 26 unphotographed (mid-scroll gap between Rendaxx #25 and
+    # REAPS #27) -- one of choolzy, Ekkehard, NalaStomp, Papykique,
+    # P107215255, Saludan, IlTeino, Swidishh, Mightykey, Ghoro, Murkchoppa
+    # almost certainly belongs there and is not actually 0-attack; none
+    # of the 11 is being flagged as a confirmed 0-attack candidate today.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["10/12", "10/13", "10/14", "10/15", "10/16", "10/17", "10/18"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri, 5: invasion_logged_sat}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 4  # Friday -- the most recently tracked day
+TODAY_INDEX = 5  # Saturday -- the most recently tracked day
 WEEK_LABEL = "wk of 10/12"
 
 # Roster unchanged. Donation values still carried forward from the 10/4
@@ -408,6 +468,7 @@ ATTACK_LOGS = {
     2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
     3: {name: ((2, 2) if name in invasion_logged_thu else (0, 0)) for name, role in roster},
     4: {name: ((2, 2) if name in invasion_logged_fri else (0, 0)) for name, role in roster},
+    5: {name: ((2, 2) if name in invasion_logged_sat else (0, 0)) for name, role in roster},
 }
 
 
