@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Oct 17, 2026"
+UPDATED_DATE = "Oct 19, 2026"
 
 
 def b64(name):
@@ -41,370 +41,76 @@ MASTHEAD_REPLACEMENTS = {
 }
 
 # ---- Data ----
-# New week: Mon 10/12 - Sun 10/18. Damage ranking (1-40 of 48) read off the
-# scrollable Guild Member Ranking list; 8 screenshots this batch, no
+# New week: Mon 10/19 - Sun 10/25. Damage ranking (1-42 of 48) read off
+# the scrollable Guild Member Ranking list; 7 screenshots this batch, no
 # Manage Member screen, so donation values are carried forward unchanged
-# from the 10/4 full refresh. No roster changes. Pimpanzee's 16.97T is a
-# new season-high single-day #1 (previous high was Pimpanzee's own 13.69T
-# on 9/24). The 8 members missing from the ranking (choolzy, AnyDockers,
-# Papykique, Tvojemama1, P107215255, Mightykey, Murkchoppa, CzosneK) --
-# ranking list ended cleanly at rank 40 (Fredolay) right above the pinned
-# own-rank footer, so this is the true end of the list, not a mid-scroll
-# gap. Confirmed 0-attack call-out candidates per the 9/2 policy.
-invasion_logged_mon = {
-    "Pimpanzee": 16.97e12,
-    "EpicMarksman": 9.38e12,
-    "HyenA": 7.06e12,
-    "Flforever": 4.98e12,
-    "fred21422": 4.97e12,
-    "Drew2264": 3.82e12,
-    "iBooneh": 3.52e12,
-    "elementten": 3.06e12,
-    "RonickForce": 2.71e12,
-    "NalaStomp": 1.77e12,
-    "Ghost192": 1.55e12,
-    "Ibnt": 1.23e12,
-    "BigRagaTheOppStopa": 1.01e12,
-    "Atom369": 997.24e9,
-    "Saludan": 922.21e9,
-    "REAPS": 881.18e9,
-    "BenZoo": 804.00e9,
-    "Drakias": 652.72e9,
-    "Jackylefeu": 481.94e9,
-    "Ekkehard": 432.35e9,
-    "1RauMuong1": 357.46e9,
-    "Altair1165": 275.83e9,
-    "saare": 258.36e9,
-    "Rysor": 256.82e9,
-    "Maskiert03": 226.56e9,
-    "Ghoro": 199.97e9,
-    "Stumbi97": 197.19e9,
-    "estimov": 188.09e9,
-    "Rendaxx": 153.84e9,
-    "Skytiti": 151.68e9,
-    "IlTeino": 150.00e9,
-    "Nad33m": 112.90e9,
-    "ScHlAnGE": 108.63e9,
-    "tEruPmA": 107.82e9,
-    "zozoxo": 80.07e9,
-    "xavop": 46.08e9,
-    "Swidishh": 36.05e9,
-    "lllmundlll": 35.86e9,
-    "Depfefferle336": 7.20e9,
-    "Fredolay": 6.93e9,
-    # Not visible in the ranking (choolzy, AnyDockers, Papykique,
-    # Tvojemama1, P107215255, Mightykey, Murkchoppa, CzosneK) -- unreached
-    # tail / true end of list, confirmed 0-attack call-out candidates per
-    # the 9/2 policy.
-}
-
-# Tuesday 10/13 -- damage ranking (1-41 of 48) read off the scrollable
-# Guild Member Ranking list; 7 screenshots this batch, no Manage Member
-# screen, so donation values are still carried forward from the 10/4 full
-# refresh (now over a week stale). No roster changes. The 7 members
-# missing from the ranking (choolzy, REAPS, AnyDockers, Papykique,
-# Saludan, Mightykey, Murkchoppa) -- ranking list ended cleanly at rank
-# 41 (CzosneK) right above the pinned own-rank footer, so this is the
-# true end of the list, not a mid-scroll gap. Confirmed 0-attack call-out
+# from the 10/4 full refresh (now 15 days stale). Sunday 10/18 had no
+# Shortcut upload, so it's left untracked rather than guessed -- this
+# week opens straight from Saturday 10/17. No roster changes. The 6
+# members missing from the ranking (Depfefferle336, choolzy, P107215255,
+# Mightykey, Murkchoppa, zozoxo) -- ranking list ended cleanly at rank 42
+# (xavop) right above the pinned own-rank footer, so this is the true end
+# of the list, not a mid-scroll gap. Confirmed 0-attack call-out
 # candidates per the 9/2 policy.
-invasion_logged_tue = {
-    "Pimpanzee": 5.11e12,
-    "P107215255": 4.79e12,
-    "BenZoo": 3.98e12,
-    "HyenA": 3.31e12,
-    "Drew2264": 3.29e12,
-    "EpicMarksman": 2.99e12,
-    "fred21422": 2.82e12,
-    "RonickForce": 2.49e12,
-    "elementten": 2.12e12,
-    "Flforever": 1.99e12,
-    "ScHlAnGE": 1.35e12,
-    "Nad33m": 1.21e12,
-    "iBooneh": 1.07e12,
-    "Atom369": 807.37e9,
-    "Ibnt": 781.09e9,
-    "saare": 660.04e9,
-    "NalaStomp": 655.63e9,
-    "Altair1165": 631.59e9,
-    "Drakias": 535.58e9,
-    "Ghost192": 532.86e9,
-    "Stumbi97": 518.51e9,
-    "Skytiti": 463.89e9,
-    "lllmundlll": 426.24e9,
-    "BigRagaTheOppStopa": 419.96e9,
-    "Ekkehard": 392.26e9,
-    "1RauMuong1": 371.71e9,
-    "Maskiert03": 299.69e9,
-    "Jackylefeu": 254.21e9,
-    "Rysor": 206.29e9,
-    "tEruPmA": 197.50e9,
-    "Ghoro": 165.62e9,
-    "Rendaxx": 155.48e9,
-    "estimov": 153.62e9,
-    "xavop": 123.54e9,
-    "zozoxo": 91.99e9,
-    "Swidishh": 69.00e9,
-    "IlTeino": 36.82e9,
-    "Fredolay": 25.66e9,
-    "Tvojemama1": 18.17e9,
-    "Depfefferle336": 14.08e9,
-    "CzosneK": 10.96e9,
-    # Not visible in the ranking (choolzy, REAPS, AnyDockers, Papykique,
-    # Saludan, Mightykey, Murkchoppa) -- ranking list ended cleanly at
-    # rank 41 right above the pinned own-rank footer, so this is the true
-    # end of the list, not a mid-scroll gap. Confirmed 0-attack call-out
-    # candidates per the 9/2 policy.
-}
-
-# Wednesday 10/14 -- damage ranking (1-42 of 48) read off the scrollable
-# Guild Member Ranking list; 7 screenshots this batch, no Manage Member
-# screen, so donation values are still carried forward from the 10/4 full
-# refresh (now 10 days stale). No roster changes. The 6 members missing
-# from the ranking (choolzy, REAPS, Tvojemama1, Mightykey, Murkchoppa,
-# CzosneK) -- ranking list ended cleanly at rank 42 (Fredolay) right
-# above the pinned own-rank footer, so this is the true end of the list,
-# not a mid-scroll gap. Confirmed 0-attack call-out candidates per the
-# 9/2 policy.
-invasion_logged_wed = {
-    "Pimpanzee": 7.79e12,
-    "Drew2264": 5.37e12,
-    "EpicMarksman": 5.18e12,
-    "HyenA": 5.09e12,
-    "elementten": 3.64e12,
-    "fred21422": 3.46e12,
-    "BenZoo": 3.37e12,
-    "RonickForce": 2.41e12,
-    "Flforever": 2.22e12,
-    "P107215255": 1.71e12,
-    "Ghost192": 1.34e12,
-    "Papykique": 1.09e12,
-    "NalaStomp": 817.83e9,
-    "ScHlAnGE": 800.50e9,
-    "iBooneh": 746.01e9,
-    "BigRagaTheOppStopa": 719.88e9,
-    "Ekkehard": 698.08e9,
-    "Atom369": 654.50e9,
-    "1RauMuong1": 639.08e9,
-    "Drakias": 620.37e9,
-    "saare": 473.01e9,
-    "Ibnt": 463.12e9,
-    "Altair1165": 408.03e9,
-    "Jackylefeu": 399.04e9,
-    "Stumbi97": 321.65e9,
-    "Saludan": 311.98e9,
-    "Rysor": 297.26e9,
-    "Ghoro": 234.45e9,
-    "Skytiti": 221.63e9,
-    "zozoxo": 153.52e9,
-    "Rendaxx": 140.79e9,
-    "tEruPmA": 140.42e9,
-    "Maskiert03": 79.33e9,
-    "Nad33m": 59.61e9,
-    "lllmundlll": 55.55e9,
-    "IlTeino": 47.59e9,
-    "AnyDockers": 36.94e9,
-    "estimov": 33.29e9,
-    "xavop": 28.67e9,
-    "Swidishh": 19.62e9,
-    "Depfefferle336": 9.62e9,
-    "Fredolay": 4.44e9,
-    # Not visible in the ranking (choolzy, REAPS, Tvojemama1, Mightykey,
-    # Murkchoppa, CzosneK) -- ranking list ended cleanly at rank 42 right
-    # above the pinned own-rank footer, so this is the true end of the
-    # list, not a mid-scroll gap. Confirmed 0-attack call-out candidates
-    # per the 9/2 policy.
-}
-
-# Thursday 10/15 -- damage ranking (1-39 of 48) read off the scrollable
-# Guild Member Ranking list; 6 screenshots this batch, no Manage Member
-# screen, so donation values are still carried forward from the 10/4 full
-# refresh (now 11 days stale). No roster changes. Pimpanzee's 27.45T is a
-# new season-high #1 (previous high was Pimpanzee's own 16.97T on
-# 10/12). Notably EpicMarksman -- usually a top-3 regular -- is among the
-# 9 members missing from the ranking today (choolzy, Fredolay,
-# EpicMarksman, Papykique, P107215255, Saludan, Mightykey, Murkchoppa,
-# CzosneK) -- ranking list ended cleanly at rank 39 (Tvojemama1) right
-# above the pinned own-rank footer, so this is the true end of the list,
-# not a mid-scroll gap. Confirmed 0-attack call-out candidates per the
-# 9/2 policy.
-invasion_logged_thu = {
-    "Pimpanzee": 27.45e12,
-    "HyenA": 11.58e12,
-    "Drew2264": 5.85e12,
-    "fred21422": 4.19e12,
-    "Flforever": 4.14e12,
-    "RonickForce": 3.87e12,
-    "BenZoo": 3.86e12,
-    "ScHlAnGE": 2.24e12,
-    "iBooneh": 2.24e12,
-    "elementten": 2.11e12,
-    "Ghost192": 1.47e12,
-    "Atom369": 1.43e12,
-    "REAPS": 1.29e12,
-    "Ibnt": 1.19e12,
-    "BigRagaTheOppStopa": 1.01e12,
-    "Drakias": 750.69e9,
-    "saare": 686.24e9,
-    "NalaStomp": 604.98e9,
-    "Maskiert03": 573.47e9,
-    "Stumbi97": 438.80e9,
-    "Ekkehard": 383.78e9,
-    "Jackylefeu": 366.90e9,
-    "1RauMuong1": 341.12e9,
-    "Altair1165": 301.86e9,
-    "AnyDockers": 298.39e9,
-    "IlTeino": 292.65e9,
-    "Ghoro": 267.84e9,
-    "estimov": 265.76e9,
-    "Skytiti": 231.49e9,
-    "Rysor": 155.82e9,
-    "lllmundlll": 130.74e9,
-    "Nad33m": 86.07e9,
-    "xavop": 68.85e9,
-    "tEruPmA": 54.69e9,
-    "Rendaxx": 40.50e9,
-    "zozoxo": 39.52e9,
-    "Depfefferle336": 26.33e9,
-    "Swidishh": 15.19e9,
-    "Tvojemama1": 8.94e9,
-    # Not visible in the ranking (choolzy, Fredolay, EpicMarksman,
-    # Papykique, P107215255, Saludan, Mightykey, Murkchoppa, CzosneK) --
-    # ranking list ended cleanly at rank 39 right above the pinned
-    # own-rank footer, so this is the true end of the list, not a
-    # mid-scroll gap. Confirmed 0-attack call-out candidates per the 9/2
-    # policy.
-}
-
-# Friday 10/16 -- damage ranking (1-41 of 48) read off the scrollable
-# Guild Member Ranking list; 7 screenshots this batch, no Manage Member
-# screen, so donation values are still carried forward from the 10/4 full
-# refresh (now 12 days stale). No roster changes. EpicMarksman is back on
-# the podium (#3) after yesterday's absence. The 7 members missing from
-# the ranking (choolzy, REAPS, P107215255, Skytiti, Mightykey, Murkchoppa,
-# Fredolay) -- ranking list ended cleanly at rank 41 (CzosneK) right
-# above the pinned own-rank footer, so this is the true end of the list,
-# not a mid-scroll gap. Confirmed 0-attack call-out candidates per the
-# 9/2 policy.
-invasion_logged_fri = {
-    "Pimpanzee": 21.75e12,
-    "Flforever": 7.03e12,
-    "EpicMarksman": 6.79e12,
-    "HyenA": 6.57e12,
-    "fred21422": 5.78e12,
-    "BenZoo": 2.91e12,
-    "Drew2264": 2.42e12,
-    "RonickForce": 2.02e12,
-    "elementten": 1.72e12,
-    "Ibnt": 1.44e12,
-    "1RauMuong1": 1.30e12,
-    "NalaStomp": 1.22e12,
-    "iBooneh": 1.09e12,
-    "Drakias": 880.03e9,
-    "Stumbi97": 658.18e9,
-    "BigRagaTheOppStopa": 648.82e9,
-    "ScHlAnGE": 597.79e9,
-    "Ghost192": 529.79e9,
-    "Jackylefeu": 436.75e9,
-    "lllmundlll": 417.13e9,
-    "Rysor": 385.10e9,
-    "Altair1165": 358.57e9,
-    "Ekkehard": 349.52e9,
-    "Papykique": 300.09e9,
-    "Tvojemama1": 267.63e9,
-    "saare": 251.47e9,
-    "Maskiert03": 245.27e9,
-    "IlTeino": 233.66e9,
-    "Saludan": 223.93e9,
-    "Rendaxx": 177.51e9,
-    "tEruPmA": 161.94e9,
-    "zozoxo": 155.21e9,
-    "Ghoro": 151.24e9,
-    "Atom369": 128.78e9,
-    "AnyDockers": 73.42e9,
-    "estimov": 54.77e9,
-    "Depfefferle336": 50.61e9,
-    "Swidishh": 44.75e9,
-    "xavop": 27.85e9,
-    "Nad33m": 19.24e9,
-    "CzosneK": 6.78e9,
-    # Not visible in the ranking (choolzy, REAPS, P107215255, Skytiti,
-    # Mightykey, Murkchoppa, Fredolay) -- ranking list ended cleanly at
-    # rank 41 right above the pinned own-rank footer, so this is the true
-    # end of the list, not a mid-scroll gap. Confirmed 0-attack call-out
-    # candidates per the 9/2 policy.
-}
-
-# Saturday 10/17 -- damage ranking (1-25, 27-38 of 48) read off the
-# scrollable Guild Member Ranking list; 7 screenshots this batch, no
-# Manage Member screen, so donation values are still carried forward
-# from the 10/4 full refresh (now 13 days stale). No roster changes. The
-# list ends cleanly at rank 38 (Fredolay) right above the pinned
-# own-rank footer, confirming a true end of list -- but rank 26 itself
-# was never captured (a genuine mid-scroll gap between Rendaxx at #25 and
-# REAPS at #27, this batch's one screenshot seam). 11 members are absent
-# from the 37 damage values actually read: choolzy, Ekkehard, NalaStomp,
-# Papykique, P107215255, Saludan, IlTeino, Swidishh, Mightykey, Ghoro,
-# Murkchoppa. One of these 11 almost certainly sits at the unphotographed
-# rank 26 (damage roughly between Rendaxx's 149.40B and REAPS's 143.91B)
-# and so is NOT actually a 0-attack case -- which one can't be
-# determined from the screenshots, so none of the 11 is being called out
-# as a confirmed 0-attack candidate today pending tomorrow's data.
-invasion_logged_sat = {
-    "Pimpanzee": 7.34e12,
-    "Flforever": 6.46e12,
-    "EpicMarksman": 6.19e12,
-    "fred21422": 5.37e12,
-    "elementten": 3.91e12,
-    "Drew2264": 3.51e12,
-    "RonickForce": 2.96e12,
-    "BenZoo": 1.77e12,
-    "HyenA": 1.62e12,
-    "Ibnt": 818.85e9,
-    "Drakias": 784.94e9,
-    "Atom369": 594.24e9,
-    "iBooneh": 559.26e9,
-    "ScHlAnGE": 510.47e9,
-    "Rysor": 490.95e9,
-    "Stumbi97": 474.35e9,
-    "CzosneK": 309.86e9,
-    "Ghost192": 298.29e9,
-    "BigRagaTheOppStopa": 279.77e9,
-    "estimov": 227.34e9,
-    "Jackylefeu": 220.96e9,
-    "AnyDockers": 184.15e9,
-    "tEruPmA": 180.68e9,
-    "zozoxo": 155.37e9,
-    "Rendaxx": 149.40e9,
-    "REAPS": 143.91e9,
-    "lllmundlll": 123.05e9,
-    "Tvojemama1": 113.21e9,
-    "saare": 104.99e9,
-    "Maskiert03": 81.70e9,
-    "Altair1165": 65.47e9,
-    "1RauMuong1": 52.53e9,
-    "xavop": 46.16e9,
-    "Skytiti": 44.44e9,
-    "Nad33m": 36.42e9,
-    "Depfefferle336": 30.51e9,
-    "Fredolay": 2.82e9,
-    # Rank 26 unphotographed (mid-scroll gap between Rendaxx #25 and
-    # REAPS #27) -- one of choolzy, Ekkehard, NalaStomp, Papykique,
-    # P107215255, Saludan, IlTeino, Swidishh, Mightykey, Ghoro, Murkchoppa
-    # almost certainly belongs there and is not actually 0-attack; none
-    # of the 11 is being flagged as a confirmed 0-attack candidate today.
+invasion_logged_mon = {
+    "Pimpanzee": 23.64e12,
+    "HyenA": 5.54e12,
+    "Flforever": 4.18e12,
+    "elementten": 3.61e12,
+    "fred21422": 3.34e12,
+    "EpicMarksman": 2.19e12,
+    "RonickForce": 1.89e12,
+    "Drew2264": 1.70e12,
+    "Ibnt": 1.39e12,
+    "iBooneh": 1.38e12,
+    "BenZoo": 1.07e12,
+    "Drakias": 1.05e12,
+    "Ghost192": 712.97e9,
+    "ScHlAnGE": 695.53e9,
+    "Jackylefeu": 670.27e9,
+    "NalaStomp": 628.50e9,
+    "Saludan": 547.78e9,
+    "Nad33m": 524.99e9,
+    "Atom369": 466.06e9,
+    "saare": 450.68e9,
+    "REAPS": 402.16e9,
+    "estimov": 368.46e9,
+    "Ekkehard": 337.25e9,
+    "IlTeino": 325.99e9,
+    "lllmundlll": 267.89e9,
+    "Rysor": 210.90e9,
+    "Rendaxx": 182.42e9,
+    "Ghoro": 177.36e9,
+    "Papykique": 174.41e9,
+    "Altair1165": 144.94e9,
+    "tEruPmA": 143.10e9,
+    "AnyDockers": 140.63e9,
+    "1RauMuong1": 118.14e9,
+    "Swidishh": 111.79e9,
+    "Maskiert03": 73.54e9,
+    "Stumbi97": 72.84e9,
+    "Tvojemama1": 65.23e9,
+    "BigRagaTheOppStopa": 50.92e9,
+    "CzosneK": 44.46e9,
+    "Skytiti": 33.55e9,
+    "Fredolay": 19.03e9,
+    "xavop": 18.46e9,
+    # Not visible in the ranking (Depfefferle336, choolzy, P107215255,
+    # Mightykey, Murkchoppa, zozoxo) -- unreached tail / true end of list,
+    # confirmed 0-attack call-out candidates per the 9/2 policy.
 }
 
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-DAY_DATES = ["10/12", "10/13", "10/14", "10/15", "10/16", "10/17", "10/18"]
+DAY_DATES = ["10/19", "10/20", "10/21", "10/22", "10/23", "10/24", "10/25"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri, 5: invasion_logged_sat}
+DAY_LOGS = {0: invasion_logged_mon}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 5  # Saturday -- the most recently tracked day
-WEEK_LABEL = "wk of 10/12"
+TODAY_INDEX = 0  # Monday -- the most recently tracked day
+WEEK_LABEL = "wk of 10/19"
 
 # Roster unchanged. Donation values still carried forward from the 10/4
 # full refresh -- no Manage Member screenshot came in with this batch
-# (now over a week stale).
+# (now 15 days stale).
 donation_members = [
     ("Mightykey", "Guild Member", 260),
     ("Murkchoppa", "Elder", 270),
@@ -464,11 +170,6 @@ roster = sorted({(name, role) for name, role, _ in donation_members})
 # Attack counts as (attacks, max) pairs per tracked day.
 ATTACK_LOGS = {
     0: {name: ((2, 2) if name in invasion_logged_mon else (0, 0)) for name, role in roster},
-    1: {name: ((2, 2) if name in invasion_logged_tue else (0, 0)) for name, role in roster},
-    2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
-    3: {name: ((2, 2) if name in invasion_logged_thu else (0, 0)) for name, role in roster},
-    4: {name: ((2, 2) if name in invasion_logged_fri else (0, 0)) for name, role in roster},
-    5: {name: ((2, 2) if name in invasion_logged_sat else (0, 0)) for name, role in roster},
 }
 
 
