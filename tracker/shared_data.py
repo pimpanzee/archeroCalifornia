@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Oct 21, 2026"
+UPDATED_DATE = "Oct 23, 2026"
 
 
 def b64(name):
@@ -214,12 +214,76 @@ invasion_logged_wed = {
     # policy.
 }
 
+# Thursday 10/22 -- no Shortcut upload came in at all, so there's no data
+# to log for this day. Deliberately left untracked (no
+# invasion_logged_thu dict, no entry in DAY_LOGS) rather than guessed or
+# backfilled.
+
+# Friday 10/23 -- damage ranking (1-42 of 48) read off the scrollable
+# Guild Member Ranking list; 7 screenshots this batch, no Manage Member
+# screen, so donation values are still carried forward from the 10/4 full
+# refresh (now nearly three weeks stale). No roster changes. The 6
+# members missing from the ranking (choolzy, AnyDockers, Tvojemama1,
+# Altair1165, Mightykey, Murkchoppa) -- ranking list ended cleanly at
+# rank 42 (Swidishh) right above the pinned own-rank footer, so this is
+# the true end of the list, not a mid-scroll gap. Confirmed 0-attack
+# call-out candidates per the 9/2 policy.
+invasion_logged_fri = {
+    "Pimpanzee": 17.28e12,
+    "HyenA": 13.90e12,
+    "Drew2264": 11.35e12,
+    "elementten": 10.54e12,
+    "Flforever": 8.47e12,
+    "EpicMarksman": 8.39e12,
+    "BenZoo": 5.89e12,
+    "fred21422": 2.93e12,
+    "Ghost192": 2.80e12,
+    "P107215255": 2.30e12,
+    "NalaStomp": 1.58e12,
+    "iBooneh": 1.46e12,
+    "Ibnt": 1.23e12,
+    "Atom369": 1.18e12,
+    "Drakias": 766.43e9,
+    "BigRagaTheOppStopa": 743.66e9,
+    "ScHlAnGE": 678.39e9,
+    "RonickForce": 621.77e9,
+    "REAPS": 394.96e9,
+    "CzosneK": 358.19e9,
+    "Ekkehard": 334.08e9,
+    "IlTeino": 316.72e9,
+    "Skytiti": 294.70e9,
+    "saare": 273.02e9,
+    "Saludan": 243.80e9,
+    "Papykique": 222.95e9,
+    "tEruPmA": 207.39e9,
+    "Rysor": 204.10e9,
+    "1RauMuong1": 195.38e9,
+    "estimov": 167.67e9,
+    "Stumbi97": 133.79e9,
+    "lllmundlll": 123.67e9,
+    "Jackylefeu": 106.20e9,
+    "Rendaxx": 77.50e9,
+    "Ghoro": 58.80e9,
+    "Maskiert03": 52.42e9,
+    "xavop": 38.84e9,
+    "Depfefferle336": 25.67e9,
+    "Nad33m": 23.79e9,
+    "Fredolay": 22.55e9,
+    "zozoxo": 12.63e9,
+    "Swidishh": 11.43e9,
+    # Not visible in the ranking (choolzy, AnyDockers, Tvojemama1,
+    # Altair1165, Mightykey, Murkchoppa) -- ranking list ended cleanly at
+    # rank 42 right above the pinned own-rank footer, so this is the true
+    # end of the list, not a mid-scroll gap. Confirmed 0-attack call-out
+    # candidates per the 9/2 policy.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["10/19", "10/20", "10/21", "10/22", "10/23", "10/24", "10/25"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 4: invasion_logged_fri}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 2  # Wednesday -- the most recently tracked day
+TODAY_INDEX = 4  # Friday -- the most recently tracked day (Thursday 10/22 has no data, no upload came in)
 WEEK_LABEL = "wk of 10/19"
 
 # Roster unchanged. Donation values still carried forward from the 10/4
@@ -286,6 +350,7 @@ ATTACK_LOGS = {
     0: {name: ((2, 2) if name in invasion_logged_mon else (0, 0)) for name, role in roster},
     1: {name: ((2, 2) if name in invasion_logged_tue else (0, 0)) for name, role in roster},
     2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
+    4: {name: ((2, 2) if name in invasion_logged_fri else (0, 0)) for name, role in roster},
 }
 
 
