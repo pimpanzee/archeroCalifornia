@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Oct 30, 2026"
+UPDATED_DATE = "Nov 4, 2026"
 
 
 def b64(name):
@@ -179,13 +179,80 @@ invasion_logged_fri = {
     # candidates per the 9/2 policy.
 }
 
+# New week: Mon 11/2 - Sun 11/8. Mon 11/2 and Tue 11/3 both had no
+# Shortcut upload (checked daily, nothing came in), so the week opens
+# straight from Wednesday 11/4 rather than being guessed/backfilled.
+# Damage ranking (1-41 of 48) read off the scrollable Guild Member
+# Ranking list; 7 screenshots this batch, no Manage Member screen, so
+# donation values are still carried forward from the 10/4 full refresh
+# (well over four weeks stale now). No new top-1 record (Pimpanzee
+# 13.88T, below the season record of 27.45T from 10/15). "Fergs" appears
+# again at rank 27 (263.36B) -- third day in a row it's shown up (10/29,
+# 10/30, 11/4), about as strong a confirmation as screenshots alone can
+# give that this is a real member, but still not added to
+# roster/donation_members pending a Manage Member screenshot to confirm
+# role and donation count. The 8 roster members missing from the ranking
+# (Mightykey, Murkchoppa, Skytiti, Altair1165, Papykique, choolzy,
+# IlTeino, NalaStomp) -- ranking list ended cleanly at rank 41 right
+# above the pinned own-rank footer, so this is the true end of the list,
+# not a mid-scroll gap. Confirmed 0-attack call-out candidates per the
+# 9/2 policy.
+invasion_logged_wed = {
+    "Pimpanzee": 13.88e12,
+    "iBooneh": 6.93e12,
+    "Drew2264": 6.27e12,
+    "HyenA": 5.89e12,
+    "EpicMarksman": 5.41e12,
+    "RonickForce": 5.31e12,
+    "fred21422": 4.11e12,
+    "P107215255": 4.07e12,
+    "Flforever": 3.38e12,
+    "elementten": 3.05e12,
+    "BenZoo": 1.94e12,
+    "Ghost192": 1.54e12,
+    "1RauMuong1": 1.18e12,
+    "Atom369": 1.06e12,
+    "saare": 904.27e9,
+    "Stumbi97": 860.28e9,
+    "ScHlAnGE": 848.42e9,
+    "Drakias": 778.77e9,
+    "Ibnt": 647.18e9,
+    "Rysor": 618.84e9,
+    "REAPS": 560.05e9,
+    "Ekkehard": 501.21e9,
+    "Tvojemama1": 467.13e9,
+    "BigRagaTheOppStopa": 408.33e9,
+    "Maskiert03": 406.47e9,
+    "Jackylefeu": 361.82e9,
+    "Fergs": 263.36e9,  # not yet in roster -- see note above
+    "Ghoro": 180.16e9,
+    "tEruPmA": 142.77e9,
+    "Depfefferle336": 134.86e9,
+    "Saludan": 93.79e9,
+    "AnyDockers": 85.27e9,
+    "Rendaxx": 83.03e9,
+    "lllmundlll": 74.05e9,
+    "estimov": 42.63e9,
+    "xavop": 31.92e9,
+    "Nad33m": 30.26e9,
+    "Swidishh": 27.78e9,
+    "zozoxo": 11.45e9,
+    "CzosneK": 7.91e9,
+    "Fredolay": 4.08e9,
+    # Not visible in the ranking (Mightykey, Murkchoppa, Skytiti,
+    # Altair1165, Papykique, choolzy, IlTeino, NalaStomp) -- ranking list
+    # ended cleanly at rank 41 right above the pinned own-rank footer, so
+    # this is the true end of the list, not a mid-scroll gap. Confirmed
+    # 0-attack call-out candidates per the 9/2 policy.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-DAY_DATES = ["10/26", "10/27", "10/28", "10/29", "10/30", "10/31", "11/1"]
+DAY_DATES = ["11/2", "11/3", "11/4", "11/5", "11/6", "11/7", "11/8"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {3: invasion_logged_thu, 4: invasion_logged_fri}
+DAY_LOGS = {2: invasion_logged_wed}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 4  # Friday -- the most recently tracked day
-WEEK_LABEL = "wk of 10/26"
+TODAY_INDEX = 2  # Wednesday -- the only tracked day so far this week (Mon-Tue had no upload)
+WEEK_LABEL = "wk of 11/2"
 
 # Roster unchanged (Fergs not yet added -- see note above). Donation values
 # still carried forward from the 10/4 full refresh -- no Manage Member
@@ -248,8 +315,7 @@ roster = sorted({(name, role) for name, role, _ in donation_members})
 
 # Attack counts as (attacks, max) pairs per tracked day.
 ATTACK_LOGS = {
-    3: {name: ((2, 2) if name in invasion_logged_thu else (0, 0)) for name, role in roster},
-    4: {name: ((2, 2) if name in invasion_logged_fri else (0, 0)) for name, role in roster},
+    2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
 }
 
 
