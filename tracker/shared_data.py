@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Nov 12, 2026"
+UPDATED_DATE = "Nov 13, 2026"
 
 
 def b64(name):
@@ -290,12 +290,78 @@ invasion_logged_thu = {
     # Confirmed 0-attack call-out candidates per the 9/2 policy.
 }
 
+# Friday 11/13 -- damage ranking (1-40 of 48) read off the scrollable
+# Guild Member Ranking list; 10 screenshots in this batch, but 6 of
+# them were actually "Guild Expedition" detail screens (a different
+# game mode entirely, vs another guild "迷い猫") -- not used for any
+# data, only the 4 genuine Guild Member Ranking screenshots were
+# processed. No Manage Member screen, so donation values are still
+# carried forward from the 10/4 full refresh (now well over five weeks
+# stale). No new top-1 record (Pimpanzee 25.81T, below yesterday's
+# record of 33.83T). Fergs still appears (rank 27, 243.56B); Hadji25
+# appears for the second day running (rank 37, 67.04B) -- both still
+# not added to roster/donation_members pending a Manage Member
+# screenshot. The 10 roster members missing from the ranking
+# (Mightykey, Murkchoppa, Skytiti, Altair1165, Saludan, Ghost192,
+# Papykique, choolzy, IlTeino, AnyDockers) -- ranking list ended
+# cleanly at rank 40 right above the pinned own-rank footer, so this is
+# the true end of the list, not a mid-scroll gap. Confirmed 0-attack
+# call-out candidates per the 9/2 policy.
+invasion_logged_fri = {
+    "Pimpanzee": 25.81e12,
+    "BenZoo": 12.40e12,
+    "Flforever": 12.35e12,
+    "Drew2264": 11.33e12,
+    "HyenA": 10.89e12,
+    "iBooneh": 9.45e12,
+    "EpicMarksman": 8.60e12,
+    "elementten": 8.47e12,
+    "fred21422": 4.22e12,
+    "P107215255": 3.99e12,
+    "ScHlAnGE": 3.78e12,
+    "RonickForce": 2.82e12,
+    "Tvojemama1": 2.25e12,
+    "BigRagaTheOppStopa": 1.71e12,
+    "Ibnt": 1.58e12,
+    "Atom369": 1.23e12,
+    "REAPS": 1.05e12,
+    "NalaStomp": 764.13e9,
+    "Maskiert03": 759.77e9,
+    "saare": 690.03e9,
+    "lllmundlll": 516.94e9,
+    "Ekkehard": 494.42e9,
+    "Stumbi97": 443.41e9,
+    "estimov": 399.16e9,
+    "Jackylefeu": 331.92e9,
+    "Ghoro": 286.87e9,
+    "Fergs": 243.56e9,  # not yet in roster -- see note above
+    "Drakias": 195.86e9,
+    "Rendaxx": 166.28e9,
+    "1RauMuong1": 155.57e9,
+    "Rysor": 154.41e9,
+    "tEruPmA": 109.19e9,
+    "xavop": 97.31e9,
+    "Swidishh": 80.85e9,
+    "Depfefferle336": 80.01e9,
+    "Nad33m": 71.77e9,
+    "Hadji25": 67.04e9,  # not yet in roster -- see note above
+    "Fredolay": 59.67e9,
+    "zozoxo": 42.83e9,
+    "CzosneK": 7.48e9,
+    # Not visible in the ranking (Mightykey, Murkchoppa, Skytiti,
+    # Altair1165, Saludan, Ghost192, Papykique, choolzy, IlTeino,
+    # AnyDockers) -- ranking list ended cleanly at rank 40 right above
+    # the pinned own-rank footer, so this is the true end of the list,
+    # not a mid-scroll gap. Confirmed 0-attack call-out candidates per
+    # the 9/2 policy.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["11/9", "11/10", "11/11", "11/12", "11/13", "11/14", "11/15"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 3  # Thursday -- the most recently tracked day
+TODAY_INDEX = 4  # Friday -- the most recently tracked day
 WEEK_LABEL = "wk of 11/9"
 
 # Roster unchanged (Fergs not yet added -- see note above). Donation values
@@ -363,6 +429,7 @@ ATTACK_LOGS = {
     1: {name: ((2, 2) if name in invasion_logged_tue else (0, 0)) for name, role in roster},
     2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
     3: {name: ((2, 2) if name in invasion_logged_thu else (0, 0)) for name, role in roster},
+    4: {name: ((2, 2) if name in invasion_logged_fri else (0, 0)) for name, role in roster},
 }
 
 
