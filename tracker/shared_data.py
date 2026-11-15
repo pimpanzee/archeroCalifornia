@@ -14,7 +14,7 @@ FONTS = "/mnt/skills/examples/canvas-design/canvas-fonts"
 INVASION_URL = "https://pimpanzee.github.io/archeroCalifornia/"
 
 GUILD_ID = "90754"
-UPDATED_DATE = "Nov 13, 2026"
+UPDATED_DATE = "Nov 14, 2026"
 
 
 def b64(name):
@@ -356,12 +356,75 @@ invasion_logged_fri = {
     # the 9/2 policy.
 }
 
+# Saturday 11/14 -- damage ranking (1-37 of 48) read off the scrollable
+# Guild Member Ranking list; 6 screenshots this batch, no Manage Member
+# screen, so donation values are still carried forward from the 10/4
+# full refresh (now well over five weeks stale). No new top-1 record
+# (Pimpanzee 25.21T, below the 33.83T record from 11/12). Fergs (rank
+# 33) and Hadji25 (rank 28, third day running) both still appear, and a
+# THIRD unrecognized name shows up this batch -- "IIWaHII" at rank 18
+# (530.51B). All three are logged here but still not added to
+# roster/donation_members pending a Manage Member screenshot to confirm
+# role/donation counts. The 14 roster members missing from the ranking
+# (Mightykey, Murkchoppa, Skytiti, P107215255, Ghost192, Papykique,
+# choolzy, Depfefferle336, Maskiert03, IlTeino, Stumbi97, REAPS,
+# AnyDockers, estimov) -- ranking list ended cleanly at rank 37 right
+# above the pinned own-rank footer, so this is the true end of the
+# list, not a mid-scroll gap. Confirmed 0-attack call-out candidates
+# per the 9/2 policy.
+invasion_logged_sat = {
+    "Pimpanzee": 25.21e12,
+    "HyenA": 8.35e12,
+    "Flforever": 7.82e12,
+    "BenZoo": 6.60e12,
+    "fred21422": 4.61e12,
+    "EpicMarksman": 3.58e12,
+    "iBooneh": 2.46e12,
+    "Atom369": 2.14e12,
+    "elementten": 2.03e12,
+    "NalaStomp": 1.69e12,
+    "Drew2264": 1.68e12,
+    "RonickForce": 1.22e12,
+    "ScHlAnGE": 1.21e12,
+    "1RauMuong1": 1.10e12,
+    "Ibnt": 923.74e9,
+    "Ekkehard": 669.09e9,
+    "Rysor": 630.03e9,
+    "IIWaHII": 530.51e9,  # not yet in roster -- see note above
+    "Altair1165": 485.14e9,
+    "Saludan": 377.27e9,
+    "BigRagaTheOppStopa": 289.46e9,
+    "Drakias": 276.17e9,
+    "Tvojemama1": 213.29e9,
+    "Jackylefeu": 163.68e9,
+    "Ghoro": 110.11e9,
+    "saare": 92.67e9,
+    "lllmundlll": 84.22e9,
+    "Hadji25": 82.24e9,  # not yet in roster -- see note above
+    "Swidishh": 45.37e9,
+    "Nad33m": 45.00e9,
+    "tEruPmA": 42.82e9,
+    "Rendaxx": 33.66e9,
+    "Fergs": 29.76e9,  # not yet in roster -- see note above
+    "xavop": 22.02e9,
+    "CzosneK": 18.41e9,
+    "zozoxo": 9.60e9,
+    "Fredolay": 9.34e9,
+    # Not visible in the ranking (Mightykey, Murkchoppa, Skytiti,
+    # P107215255, Ghost192, Papykique, choolzy, Depfefferle336,
+    # Maskiert03, IlTeino, Stumbi97, REAPS, AnyDockers, estimov) --
+    # ranking list ended cleanly at rank 37 right above the pinned
+    # own-rank footer, so this is the true end of the list, not a
+    # mid-scroll gap. Confirmed 0-attack call-out candidates per the
+    # 9/2 policy.
+}
+
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 DAY_DATES = ["11/9", "11/10", "11/11", "11/12", "11/13", "11/14", "11/15"]
 DAY_FULL_LABELS = [f"{d} {dt}" for d, dt in zip(DAY_NAMES, DAY_DATES)]
-DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri}
+DAY_LOGS = {0: invasion_logged_mon, 1: invasion_logged_tue, 2: invasion_logged_wed, 3: invasion_logged_thu, 4: invasion_logged_fri, 5: invasion_logged_sat}
 TRACKED_DAYS = sorted(DAY_LOGS.keys())
-TODAY_INDEX = 4  # Friday -- the most recently tracked day
+TODAY_INDEX = 5  # Saturday -- the most recently tracked day
 WEEK_LABEL = "wk of 11/9"
 
 # Roster unchanged (Fergs not yet added -- see note above). Donation values
@@ -430,6 +493,7 @@ ATTACK_LOGS = {
     2: {name: ((2, 2) if name in invasion_logged_wed else (0, 0)) for name, role in roster},
     3: {name: ((2, 2) if name in invasion_logged_thu else (0, 0)) for name, role in roster},
     4: {name: ((2, 2) if name in invasion_logged_fri else (0, 0)) for name, role in roster},
+    5: {name: ((2, 2) if name in invasion_logged_sat else (0, 0)) for name, role in roster},
 }
 
 
